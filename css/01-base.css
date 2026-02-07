@@ -1,0 +1,248 @@
+/* ================================================================
+   01 - Базовые стили и компоненты (перенесено из landing-09-03-01.css)
+================================================================ */
+/* ================================================================
+   2. СБРОС СТИЛЕЙ
+================================================================ */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    overflow-x: hidden;
+    min-height: 100vh;
+    transition: background var(--transition), color var(--transition);
+}
+
+/* SVG icons use currentColor so they adapt to theme */
+.icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+}
+
+/* Ensure any shapes inside the SVG sprite (paths, rects, circles) also use currentColor.
+   Some SVG symbols may contain hard-coded fills; this forces them to follow CSS color. */
+.icon *,
+.icon { 
+    fill: currentColor !important;
+    stroke: currentColor !important;
+    color: inherit;
+}
+
+/* Explicit icon colors per theme:
+   - light (default): icons use the main text color so they appear dark
+   - dark theme: icons become white for contrast
+   Specific badge/icon containers (e.g. .card__icon) override these rules
+   later in component CSS to remain white on colored backgrounds. */
+body:not([data-theme="dark"]) .icon {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .icon {
+    color: #ffffff;
+}
+
+/* Ensure images on various blocks are visually separated from background
+   so they remain visible regardless of image brightness */
+
+/* Ensure images on various blocks are visually separated from background
+   so they remain visible regardless of image brightness. We add
+   subtle borders/shadows tuned for light/dark themes and enforce
+   object-fit/position to avoid cropped content hiding important detail. */
+.gallery__slide img,
+.gallery__item img,
+.about__image img,
+.about__feature-image img,
+.testimonial__photo img,
+.nav__logo-img {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.04);
+    box-shadow: 0 8px 24px rgba(16,24,40,0.06);
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: box-shadow 180ms ease, border-color 180ms ease;
+    color: inherit; /* so SVG placeholders follow container color */
+}
+
+/* Stronger separation in dark theme */
+[data-theme="dark"] .gallery__slide img,
+[data-theme="dark"] .gallery__item img,
+[data-theme="dark"] .about__image img,
+[data-theme="dark"] .about__feature-image img,
+[data-theme="dark"] .testimonial__photo img,
+[data-theme="dark"] .nav__logo-img {
+    border-color: rgba(255,255,255,0.06);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.6);
+}
+
+/* Placeholder visuals: ensure placeholder icon/text contrasts with theme */
+.placeholder,
+.placeholder-mini {
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] .placeholder,
+[data-theme="dark"] .placeholder-mini {
+    color: rgba(255,255,255,0.68);
+}
+
+/* Small placeholder SVGs inside feature image fallback */
+.placeholder-mini svg.icon,
+.placeholder svg.icon {
+    width: 48px;
+    height: 48px;
+    fill: currentColor !important;
+    stroke: currentColor !important;
+}
+
+/* If image is very light on light background, add subtle inner shadow to improve readability */
+.gallery__slide::after,
+.gallery__item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px transparent;
+}
+
+[data-theme="light"] .gallery__slide::after,
+[data-theme="light"] .gallery__item::after {
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.02);
+}
+
+[data-theme="dark"] .gallery__slide::after,
+[data-theme="dark"] .gallery__item::after {
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+}
+
+
+/* ================================================================
+   3. БАЗОВЫЕ ЭЛЕМЕНТЫ
+================================================================ */
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+address {
+    font-style: normal;
+}
+
+
+/* ================================================================
+   4. УТИЛИТЫ
+================================================================ */
+.container {
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section {
+    padding: 6rem 0;
+    position: relative;
+}
+
+/* Заголовок секции */
+.section__header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+.section__tag {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+}
+
+.section__title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.section__desc {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* Placeholder для изображений */
+.placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    padding: 2rem;
+    border: 2px dashed var(--border-color);
+}
+
+.placeholder span {
+    font-size: 3rem;
+}
+
+.placeholder p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ================================================================
+   Остальные компоненты (кнопки, nav, hero, gallery и т.д.)
+   находятся в оригинальном файле и будут добавлены по необходимости.
+================================================================ */
