@@ -1216,6 +1216,10 @@ address {
     .about__feature--with-image:hover .about__feature-image {
         transform: translate(-50%, -50%) scale(1);
     }
+
+    .about__feature--with-image::after {
+    content: '👁️';
+}
 }
 
 
