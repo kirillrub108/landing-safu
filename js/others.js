@@ -1,4 +1,4 @@
-// Misc inits left in a single module
+// Разные инициализации в одном модуле
 export function initPreloader() {
   const preloader = document.querySelector('.preloader');
   if (!preloader) {

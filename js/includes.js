@@ -1,5 +1,5 @@
-// Loads HTML partials referenced by data-include attributes.
-// Requires an HTTP server (fetch does not work on file:// protocol).
+// Загружает HTML части по атрибутам data-include.
+// Требует HTTP сервер (fetch не работает на file:// протоколе).
 export async function loadIncludes() {
   const slots = document.querySelectorAll('[data-include]');
   console.log(`[Includes] Loading ${slots.length} sections...`);

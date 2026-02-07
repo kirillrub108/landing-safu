@@ -142,7 +142,7 @@
     border: 1px solid var(--glass-border);
 }
 
-/* Make 'accessible' (eye) theme button light when the page is in dark theme */
+/* Кнопка темы 'accessible' (глаз) становится светлой когда страница в dark теме */
 [data-theme="dark"] .theme-toggle__btn[data-theme="accessible"] {
     background: #ffffff;
     color: var(--primary-blue-dark);

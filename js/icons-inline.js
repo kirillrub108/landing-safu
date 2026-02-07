@@ -1,14 +1,14 @@
 /*
- * Optional runtime SVG sprite inliner
- * - Inlines `assets/icons.svg` into the document when running from `file:` protocol
- *   or when enabled via `document.documentElement.dataset.inlineSvg = 'true'`
- *   or when `localStorage['safu-inline-sprite'] === '1'`.
- * - Safe to load on HTTP too (duplicates symbols but harmless).
+ * Опциональный runtime инлайнер SVG sprite
+ * - Встраивает `assets/icons.svg` в документ при запуске на `file:` протоколе
+ *   или когда включено через `document.documentElement.dataset.inlineSvg = 'true'`
+ *   или когда `localStorage['safu-inline-sprite'] === '1'`.
+ * - Безопасно загружать и на HTTP (дублирует symbols, но безвредно).
  */
 
 (function() {
-  // Always inline by default (works on HTTP and file:). To disable, set
-  // document.documentElement.dataset.inlineSvg = 'false' or localStorage['safu-inline-sprite']='0'.
+  // По умолчанию всегда встраиваем (работает на HTTP и file:). Чтобы отключить, установите
+  // document.documentElement.dataset.inlineSvg = 'false' или localStorage['safu-inline-sprite']='0'.
   const disabled = document.documentElement.dataset.inlineSvg === 'false' || localStorage.getItem('safu-inline-sprite') === '0';
   if (disabled) return;
   const url = 'assets/icons.svg';
@@ -30,12 +30,12 @@
       if (place.firstChild) place.insertBefore(svg, place.firstChild);
       else place.appendChild(svg);
     } catch (e) {
-      // parsing/insertion failed
+      // парсинг/вставка провалилась
       console.warn('icons-inline: failed to insert sprite', e);
     }
   }
 
-  // Try fetch first
+  // Сначала пробуем fetch
   fetch(url, {cache: 'force-cache'})
     .then(resp => {
       if (!resp.ok) throw new Error('status ' + resp.status);
@@ -43,7 +43,7 @@
     })
     .then(insertSvg)
     .catch(() => {
-      // Fallback to XHR for environments where fetch is blocked
+      // Fallback на XHR для окружений где fetch заблокирован
       try {
         const xhr = new XMLHttpRequest();
         xhr.open('GET', url);

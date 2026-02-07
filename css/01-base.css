@@ -26,7 +26,7 @@ body {
     transition: background var(--transition), color var(--transition);
 }
 
-/* SVG icons use currentColor so they adapt to theme */
+/* SVG иконки используют currentColor для адаптации к теме */
 .icon {
     display: inline-block;
     vertical-align: middle;
@@ -35,20 +35,20 @@ body {
     fill: currentColor;
 }
 
-/* Ensure any shapes inside the SVG sprite (paths, rects, circles) also use currentColor.
-   Some SVG symbols may contain hard-coded fills; this forces them to follow CSS color. */
+/* Все фигуры внутри SVG sprite (paths, rects, circles) тоже используют currentColor.
+   Некоторые SVG символы могут содержать жёстко заданные цвета; это заставляет их следовать CSS color. */
 .icon *,
-.icon { 
+.icon {
     fill: currentColor !important;
     stroke: currentColor !important;
     color: inherit;
 }
 
-/* Explicit icon colors per theme:
-   - light (default): icons use the main text color so they appear dark
-   - dark theme: icons become white for contrast
-   Specific badge/icon containers (e.g. .card__icon) override these rules
-   later in component CSS to remain white on colored backgrounds. */
+/* Явные цвета иконок для каждой темы:
+   - light (по умолчанию): иконки используют основной цвет текста (тёмные)
+   - dark тема: иконки становятся белыми для контраста
+   Специфичные контейнеры иконок (например .card__icon) переопределяют эти правила
+   позже в CSS компонентов, чтобы оставаться белыми на цветных фонах. */
 body:not([data-theme="dark"]) .icon {
     color: var(--text-primary);
 }
@@ -57,13 +57,9 @@ body:not([data-theme="dark"]) .icon {
     color: #ffffff;
 }
 
-/* Ensure images on various blocks are visually separated from background
-   so they remain visible regardless of image brightness */
-
-/* Ensure images on various blocks are visually separated from background
-   so they remain visible regardless of image brightness. We add
-   subtle borders/shadows tuned for light/dark themes and enforce
-   object-fit/position to avoid cropped content hiding important detail. */
+/* Изображения визуально отделены от фона, чтобы оставаться видимыми независимо от яркости.
+   Добавляем тонкие borders/shadows настроенные для светлой/тёмной темы и применяем
+   object-fit/position чтобы избежать обрезки контента. */
 .gallery__slide img,
 .gallery__item img,
 .about__image img,
@@ -77,10 +73,10 @@ body:not([data-theme="dark"]) .icon {
     object-fit: cover;
     object-position: center;
     transition: box-shadow 180ms ease, border-color 180ms ease;
-    color: inherit; /* so SVG placeholders follow container color */
+    color: inherit; /* чтобы SVG placeholders следовали цвету контейнера */
 }
 
-/* Stronger separation in dark theme */
+/* Более сильное отделение в тёмной теме */
 [data-theme="dark"] .gallery__slide img,
 [data-theme="dark"] .gallery__item img,
 [data-theme="dark"] .about__image img,
@@ -90,7 +86,7 @@ body:not([data-theme="dark"]) .icon {
     box-shadow: 0 10px 28px rgba(0,0,0,0.6);
 }
 
-/* Placeholder visuals: ensure placeholder icon/text contrasts with theme */
+/* Placeholder визуалы: иконка/текст контрастирует с темой */
 .placeholder,
 .placeholder-mini {
     color: var(--text-muted);
@@ -101,7 +97,7 @@ body:not([data-theme="dark"]) .icon {
     color: rgba(255,255,255,0.68);
 }
 
-/* Small placeholder SVGs inside feature image fallback */
+/* Маленькие SVG placeholders внутри fallback изображений фич */
 .placeholder-mini svg.icon,
 .placeholder svg.icon {
     width: 48px;
@@ -110,7 +106,7 @@ body:not([data-theme="dark"]) .icon {
     stroke: currentColor !important;
 }
 
-/* If image is very light on light background, add subtle inner shadow to improve readability */
+/* Если изображение очень светлое на светлом фоне, добавляем тонкую внутреннюю тень для читаемости */
 .gallery__slide::after,
 .gallery__item::after {
     content: '';
