@@ -938,8 +938,8 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
     color: #ffffff;
 }
 
-/* Ensure icons placed on gradient/colored badges are white for contrast.
-   Must beat the base rule body:not([data-theme="dark"]) .icon (specificity 0,2,1). */
+/* Иконки на gradient/цветных badge должны быть белыми для контраста.
+   Должны перебить базовое правило body:not([data-theme="dark"]) .icon (специфичность 0,2,1). */
 .card__icon,
 .career__role-icon {
     color: #ffffff;
@@ -1089,7 +1089,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     transition: background var(--transition), border-color var(--transition), transform var(--transition);
     box-sizing: border-box;
     width: 100%;
-    min-height: 72px; /* keep consistent visual rhythm */
+    min-height: 72px; /* сохраняем консистентный визуальный ритм */
 }
 
 .career__role:hover {
@@ -1149,7 +1149,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-xl);
     box-sizing: border-box;
-    align-self: stretch; /* make right panel match left column height when possible */
+    align-self: stretch; /* правая панель подстраивается под высоту левой колонки когда возможно */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1254,7 +1254,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    aspect-ratio: 16 / 9; /* force 16:9 slide container */
+    aspect-ratio: 16 / 9; /* принудительное соотношение 16:9 для контейнера слайда */
 }
 
 .gallery__slide img {
