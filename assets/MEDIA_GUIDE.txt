@@ -16,18 +16,13 @@ assets/
 │   │   ├── laboratory.jpg     - Современные лаборатории (400x180px)
 │   │   └── projects.jpg       - Реальные проекты (400x180px)
 │   │
-│   ├── gallery/               - Фото для галереи
-│   │   ├── hackathon.jpg      - Хакатон (широкое фото, 1200x600px)
-│   │   ├── lab.jpg            - Лаборатория (600x400px)
-│   │   ├── defense.jpg        - Защита проекта (600x400px)
-│   │   ├── campus.jpg         - Кампус (высокое фото, 600x800px)
-│   │   ├── students.jpg       - Студенты (600x400px)
-│   │   └── conference.jpg     - Конференция (600x400px)
-│   │
-│   └── testimonials/          - Фото выпускников для отзывов
-│       ├── testimonial-1.jpg  - Фото Максима Волкова (200x200px, квадратное)
-│       ├── testimonial-2.jpg  - Фото Алины Северовой (200x200px, квадратное)
-│       └── testimonial-3.jpg  - Фото Артёма Белова (200x200px, квадратное)
+│   └── gallery/               - Фото для галереи
+│       ├── hackathon.jpg      - Хакатон (широкое фото, 1200x600px)
+│       ├── lab.jpg            - Лаборатория (600x400px)
+│       ├── defense.jpg        - Защита проекта (600x400px)
+│       ├── campus.jpg         - Кампус (высокое фото, 600x800px)
+│       ├── students.jpg       - Студенты (600x400px)
+│       └── conference.jpg     - Конференция (600x400px)
 │
 └── video/
     └── hero-background.mp4    - Фоновое видео для hero секции
@@ -55,7 +50,6 @@ hero-background.mp4:
 3. Соотношение сторон:
    - Широкие (gallery wide): 2:1
    - Обычные: 3:2
-   - Квадратные (testimonials): 1:1
    - Высокие (gallery tall): 3:4
 
 4. Качество: достаточно 72-150 DPI для веба

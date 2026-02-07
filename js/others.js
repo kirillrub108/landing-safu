@@ -1,21 +1,84 @@
 // Misc inits left in a single module
 export function initPreloader() {
   const preloader = document.querySelector('.preloader');
-  if (!preloader) return;
-  window.addEventListener('load', () => {
-    setTimeout(() => { preloader.classList.add('hidden'); document.body.style.overflow = ''; }, 500);
-  });
+  if (!preloader) {
+    console.warn('[Preloader] Element not found');
+    return;
+  }
+
+  console.log('[Preloader] Initialized');
   document.body.style.overflow = 'hidden';
+
+  let isHidden = false;
+  const hidePreloader = (reason) => {
+    if (isHidden) return;
+    isHidden = true;
+    console.log(`[Preloader] Hiding (reason: ${reason})`);
+    preloader.classList.add('hidden');
+    document.body.style.overflow = '';
+  };
+
+  // Защита от зависания: максимум 10 секунд
+  const maxTimeout = setTimeout(() => hidePreloader('max timeout (10s)'), 10000);
+
+  // Оптимальный вариант: скрываем когда все ресурсы загружены
+  window.addEventListener('load', () => {
+    clearTimeout(maxTimeout);
+    // Минимальная задержка для визуального эффекта (800ms)
+    setTimeout(() => hidePreloader('window.load'), 800);
+  }, { once: true });
+
+  // Резервный вариант: если window.load не сработал за 3 секунды,
+  // скрываем прелоадер принудительно (DOM уже готов, основной контент доступен)
+  const fallbackTimeout = setTimeout(() => {
+    clearTimeout(maxTimeout);
+    hidePreloader('fallback timeout (3s)');
+  }, 3000);
+
+  // Очищаем резервный таймаут если window.load сработал
+  window.addEventListener('load', () => clearTimeout(fallbackTimeout), { once: true });
 }
 
 export function initHeroVideo() {
   const video = document.querySelector('.hero__video');
   const placeholder = document.getElementById('videoPlaceholder');
   if (!video || !placeholder) return;
-  video.addEventListener('error', () => { video.style.display = 'none'; placeholder.style.display = 'flex'; });
-  video.addEventListener('loadeddata', () => { video.style.display = 'block'; placeholder.style.display = 'none'; });
+
+  let videoLoaded = false;
+
+  const showPlaceholder = () => {
+    if (videoLoaded) return;
+    video.style.display = 'none';
+    placeholder.style.display = 'flex';
+  };
+
+  const showVideo = () => {
+    videoLoaded = true;
+    video.style.display = 'block';
+    placeholder.style.display = 'none';
+  };
+
+  // Показываем placeholder при ошибке загрузки
+  video.addEventListener('error', showPlaceholder);
+
+  // Показываем видео когда данные загружены
+  video.addEventListener('loadeddata', showVideo);
+
+  // Проверяем есть ли src у source
   const source = video.querySelector('source');
-  if (source && !source.src) { video.style.display = 'none'; placeholder.style.display = 'flex'; }
+  if (source && !source.src) {
+    showPlaceholder();
+    return;
+  }
+
+  // Таймаут: если видео не загрузилось за 3 секунды, показываем placeholder
+  // (не блокируем загрузку страницы из-за медленного/несуществующего видео)
+  setTimeout(() => {
+    if (!videoLoaded) {
+      console.warn('[HeroVideo] Loading timeout - showing placeholder');
+      showPlaceholder();
+    }
+  }, 3000);
 }
 
 export function initEducationTrack() {
@@ -63,7 +126,7 @@ export function initScrollAnimations() {
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
   revealElements.forEach((el, index) => {
-    if (el.parentElement?.classList.contains('advantages__grid') || el.parentElement?.classList.contains('testimonials__grid')) el.dataset.delay = index * 100;
+    if (el.parentElement?.classList.contains('advantages__grid')) el.dataset.delay = index * 100;
     observer.observe(el);
   });
 }
