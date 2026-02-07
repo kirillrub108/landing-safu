@@ -1,0 +1,211 @@
+/* ================================================================
+   00 - CSS ПЕРЕМЕННЫЕ + ТЕМЫ
+   Содержит :root и настройки для data-theme (dark / accessible)
+================================================================ */
+:root {
+    /* Основные цвета светлой темы */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f8fc;
+    --bg-tertiary: #eef3f9;
+
+    /* Синие акцентные цвета САФУ */
+    --primary-blue: #1a4b8c;
+    --primary-blue-light: #2563eb;
+    --primary-blue-dark: #0f2d5c;
+    --accent-cyan: #0ea5e9;
+    --accent-teal: #14b8a6;
+
+    /* Текст */
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+
+    /* Границы и разделители */
+    --border-color: #e2e8f0;
+    --border-light: rgba(30, 41, 59, 0.1);
+
+    /* Стекло-эффект */
+    --glass: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(30, 41, 59, 0.1);
+
+    /* Градиенты */
+    --gradient-primary: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+    --gradient-accent: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
+    --gradient-hero: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 50%, var(--primary-blue-light) 100%);
+
+    /* Шрифты */
+    --font-display: 'Unbounded', cursive;
+    --font-body: 'Raleway', sans-serif;
+
+    /* Размеры */
+    --container: 1400px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 30px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12);
+    --shadow-glow: 0 0 40px rgba(26, 75, 140, 0.2);
+
+    /* Переходы */
+    --transition: 0.3s ease;
+    --transition-slow: 0.6s ease;
+
+    /* Переменные для элементов, которые были захардкожены белым — темы могут их переопределять */
+    --progress-color: #ffffff;
+    --cta-btn-bg: #ffffff;
+
+    /* Z-index слои */
+    --z-bg: -1;
+    --z-default: 1;
+    --z-card: 10;
+    --z-nav: 100;
+    --z-mobile-menu: 150;
+    --z-theme-toggle: 200;
+    --z-preloader: 1000;
+}
+
+/* ================================================================
+   ТЁМНАЯ ТЕМА
+================================================================ */
+[data-theme="dark"] {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #64748b;
+
+    --border-color: #334155;
+    --border-light: rgba(255, 255, 255, 0.1);
+
+    --glass: rgba(15, 23, 42, 0.9);
+    --glass-border: rgba(255, 255, 255, 0.1);
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 40px rgba(14, 165, 233, 0.3);
+}
+
+/* Улучшение контраста для тёмной темы: более светлые акценты и адаптированные градиенты */
+[data-theme="dark"] {
+    /* Акцентные/брендовые цвета, скорректированные для видимости на тёмном фоне */
+    --primary-blue: #60a5fa; /* более светлый синий */
+    --primary-blue-light: #93c5fd;
+    --primary-blue-dark: #1e3a8a;
+    --accent-cyan: #38bdf8;
+    --accent-teal: #2dd4bf;
+
+    /* Градиенты, настроенные для тёмных поверхностей */
+    --gradient-primary: linear-gradient(135deg, var(--primary-blue-dark), var(--primary-blue));
+    --gradient-accent: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
+    --gradient-hero: linear-gradient(135deg, rgba(2,6,23,1) 0%, rgba(15,23,42,1) 50%, rgba(30,41,59,1) 100%);
+
+    /* Немного более прозрачный стеклянный фон, чтобы видеть фон за контролами */
+    --glass: rgba(2, 6, 23, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.04);
+
+    /* Элементы интерфейса, ранее захардкоженные белым, должны адаптироваться */
+    --progress-color: var(--primary-blue-light);
+    --cta-btn-bg: #ffffff;
+}
+
+[data-theme="dark"] .hero__video-overlay {
+    background: linear-gradient(135deg, rgba(2,6,23,0.9) 0%, rgba(6,12,24,0.85) 50%, rgba(2,6,23,0.9) 100%);
+}
+
+[data-theme="dark"] .hero__video-placeholder,
+[data-theme="dark"] .hero__video-placeholder-text,
+[data-theme="dark"] .hero__video-placeholder-path {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+[data-theme="dark"] .hero__badge {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .cta__glow {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+}
+
+[data-theme="dark"] .theme-toggle {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+}
+
+/* Make 'accessible' (eye) theme button light when the page is in dark theme */
+[data-theme="dark"] .theme-toggle__btn[data-theme="accessible"] {
+    background: #ffffff;
+    color: var(--primary-blue-dark);
+    border-color: rgba(0,0,0,0.06);
+}
+
+[data-theme="dark"] .theme-toggle__btn[data-theme="accessible"]:hover {
+    background: #f3fbf7;
+}
+
+[data-theme="dark"] .card::before {
+    background: var(--gradient-primary);
+}
+
+
+
+/* ================================================================
+   ТЕМА ДЛЯ СЛАБОВИДЯЩИХ
+================================================================ */
+[data-theme="accessible"] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f0f0f0;
+    --bg-tertiary: #e0e0e0;
+
+    --primary-blue: #000080;
+    --primary-blue-light: #0000cd;
+    --primary-blue-dark: #000050;
+    --accent-cyan: #008080;
+    --accent-teal: #006666;
+
+    --text-primary: #000000;
+    --text-secondary: #1a1a1a;
+    --text-muted: #333333;
+
+    --border-color: #000000;
+    --border-light: rgba(0, 0, 0, 0.3);
+
+    --glass: rgba(255, 255, 255, 0.95);
+    --glass-border: rgba(0, 0, 0, 0.3);
+
+    --gradient-primary: linear-gradient(135deg, #000080, #0000cd);
+    --gradient-accent: linear-gradient(135deg, #008080, #006666);
+
+    --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+    /* Увеличенные шрифты для доступности */
+    font-size: 18px;
+}
+
+[data-theme="accessible"] * {
+    font-weight: 500 !important;
+    letter-spacing: 0.02em;
+}
+
+[data-theme="accessible"] h1,
+[data-theme="accessible"] h2,
+[data-theme="accessible"] h3,
+[data-theme="accessible"] h4 {
+    font-weight: 700 !important;
+}
+
+[data-theme="accessible"] a:focus,
+[data-theme="accessible"] button:focus {
+    outline: 3px solid var(--primary-blue) !important;
+    outline-offset: 3px;
+}

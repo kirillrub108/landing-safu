@@ -1,0 +1,186 @@
+/* ================================================================
+   03 - Responsive rules and media queries
+================================================================ */
+
+/* Планшеты (до 1200px) */
+@media (max-width: 1200px) {
+    .hero__container {
+        justify-content: center;
+    }
+
+    .about__grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about__image {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .advantages__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .career__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Трек обучения - вертикальный на планшетах */
+    .education-track__timeline {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .education-track__timeline::before,
+    .education-track__timeline::after {
+        display: none;
+    }
+
+    .education-track__year {
+        padding: 0;
+    }
+
+    .education-track__marker {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Мобильные (до 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .section {
+        padding: 4rem 0;
+    }
+
+    /* Переключатель темы */
+    .theme-toggle {
+        top: auto;
+        bottom: 1rem;
+        right: 1rem;
+        flex-direction: row;
+    }
+
+    /* Навигация */
+    .nav__links,
+    .nav__cta {
+        display: none;
+    }
+
+    .nav__burger {
+        display: flex;
+    }
+
+    /* Hero */
+    .hero__badge {
+        font-size: 0.8rem;
+    }
+
+    /* ПРЕИМУЩЕСТВА */
+    .advantages__grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* О НАС */
+    .about__features {
+        grid-template-columns: 1fr;
+    }
+
+    /* Hide hint text on mobile, keep eye icon only */
+    .about__feature-touch::after {
+        content: none;
+    }
+
+    .about__feature-touch {
+        opacity: 0.7;
+    }
+
+    /* ОТЗЫВЫ */
+    .testimonials__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial--featured {
+        grid-column: span 1;
+    }
+
+    /* ГАЛЕРЕЯ */
+    .gallery__grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 180px);
+    }
+
+    .gallery__item--wide,
+    .gallery__item--tall {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    /* ПРИЗЫВ К ДЕЙСТВИЮ */
+    .cta__info {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    /* Footer */
+    .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+}
+
+
+
+/* Маленькие мобильные (до 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .hero__buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn--large {
+        width: 100%;
+    }
+
+    .career__role {
+        flex-wrap: wrap;
+    }
+
+    .career__role-salary {
+        width: 100%;
+        text-align: left;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .career__logos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Трек обучения */
+    .education-track__skills {
+        flex-direction: column;
+    }
+
+    .education-track__skill {
+        text-align: center;
+    }
+}

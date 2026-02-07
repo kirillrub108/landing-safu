@@ -1,362 +1,8 @@
 /* ================================================================
-   САФУ ЛЕНДИНГ - CSS СТИЛИ (СЕВЕРОДВИНСК)
-   Направление 09.03.01 Информатика и вычислительная техника
-
-   СОДЕРЖАНИЕ:
-   1. CSS Переменные (Светлая/Тёмная/Для слабовидящих темы)
-   2. Сброс стилей
-   3. Базовые элементы
-   4. Утилиты
-   5. Кнопки
-   6. Переключатель темы
-   7. Прелоадер
-   8. Навигация
-   9. Hero секция с видео
-   10. Трек обучения
-   11. Секции контента
-   12. Footer
-   13. Анимации
-   14. Медиа-запросы
+   02 - Components: buttons, theme-toggle, preloader, nav, hero,
+   education track, sections, cards, tabs, career, testimonials,
+   gallery (non-responsive) and CTA, footer, animations
 ================================================================ */
-
-
-/* ================================================================
-   1. CSS ПЕРЕМЕННЫЕ - СВЕТЛАЯ ТЕМА (по умолчанию)
-   Белые и синие оттенки для САФУ
-================================================================ */
-:root {
-    /* Основные цвета светлой темы */
-    --bg-primary: #ffffff;
-    --bg-secondary: #f5f8fc;
-    --bg-tertiary: #eef3f9;
-
-    /* Синие акцентные цвета САФУ */
-    --primary-blue: #1a4b8c;
-    --primary-blue-light: #2563eb;
-    --primary-blue-dark: #0f2d5c;
-    --accent-cyan: #0ea5e9;
-    --accent-teal: #14b8a6;
-
-    /* Текст */
-    --text-primary: #1e293b;
-    --text-secondary: #475569;
-    --text-muted: #94a3b8;
-
-    /* Границы и разделители */
-    --border-color: #e2e8f0;
-    --border-light: rgba(30, 41, 59, 0.1);
-
-    /* Стекло-эффект */
-    --glass: rgba(255, 255, 255, 0.8);
-    --glass-border: rgba(30, 41, 59, 0.1);
-
-    /* Градиенты */
-    --gradient-primary: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
-    --gradient-accent: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
-    --gradient-hero: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 50%, var(--primary-blue-light) 100%);
-
-    /* Шрифты */
-    --font-display: 'Unbounded', cursive;
-    --font-body: 'Raleway', sans-serif;
-
-    /* Размеры */
-    --container: 1400px;
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 20px;
-    --radius-xl: 30px;
-
-    /* Тени */
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12);
-    --shadow-glow: 0 0 40px rgba(26, 75, 140, 0.2);
-
-    /* Переходы */
-    --transition: 0.3s ease;
-    --transition-slow: 0.6s ease;
-
-    /* Переменные для элементов, которые были захардкожены белым — темы могут их переопределять */
-    --progress-color: #ffffff;
-    --cta-btn-bg: #ffffff;
-
-    /* Z-index слои */
-    --z-bg: -1;
-    --z-default: 1;
-    --z-card: 10;
-    --z-nav: 100;
-    --z-mobile-menu: 150;
-    --z-theme-toggle: 200;
-    --z-preloader: 1000;
-}
-
-/* ================================================================
-   ТЁМНАЯ ТЕМА
-================================================================ */
-[data-theme="dark"] {
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
-    --bg-tertiary: #334155;
-
-    --text-primary: #f1f5f9;
-    --text-secondary: #cbd5e1;
-    --text-muted: #64748b;
-
-    --border-color: #334155;
-    --border-light: rgba(255, 255, 255, 0.1);
-
-    --glass: rgba(15, 23, 42, 0.9);
-    --glass-border: rgba(255, 255, 255, 0.1);
-
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
-    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.6);
-    --shadow-glow: 0 0 40px rgba(14, 165, 233, 0.3);
-}
-
-/* Улучшение контраста для тёмной темы: более светлые акценты и адаптированные градиенты */
-[data-theme="dark"] {
-    /* Акцентные/брендовые цвета, скорректированные для видимости на тёмном фоне */
-    --primary-blue: #60a5fa; /* более светлый синий */
-    --primary-blue-light: #93c5fd;
-    --primary-blue-dark: #1e3a8a;
-    --accent-cyan: #38bdf8;
-    --accent-teal: #2dd4bf;
-
-    /* Градиенты, настроенные для тёмных поверхностей */
-    --gradient-primary: linear-gradient(135deg, var(--primary-blue-dark), var(--primary-blue));
-    --gradient-accent: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
-    --gradient-hero: linear-gradient(135deg, rgba(2,6,23,1) 0%, rgba(15,23,42,1) 50%, rgba(30,41,59,1) 100%);
-
-    /* Немного более прозрачный стеклянный фон, чтобы видеть фон за контролами */
-    --glass: rgba(2, 6, 23, 0.65);
-    --glass-border: rgba(255, 255, 255, 0.04);
-
-    /* Элементы интерфейса, ранее захардкоженные белым, должны адаптироваться */
-    --progress-color: var(--primary-blue-light);
-    --cta-btn-bg: #ffffff;
-}
-
-[data-theme="dark"] .hero__video-overlay {
-    background: linear-gradient(135deg, rgba(2,6,23,0.9) 0%, rgba(6,12,24,0.85) 50%, rgba(2,6,23,0.9) 100%);
-}
-
-[data-theme="dark"] .hero__video-placeholder,
-[data-theme="dark"] .hero__video-placeholder-text,
-[data-theme="dark"] .hero__video-placeholder-path {
-    color: rgba(255, 255, 255, 0.45);
-}
-
-[data-theme="dark"] .hero__badge {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    color: var(--text-primary);
-}
-
-[data-theme="dark"] .cta__glow {
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
-}
-
-[data-theme="dark"] .theme-toggle {
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-}
-
-[data-theme="dark"] .card::before {
-    background: var(--gradient-primary);
-}
-
-
-
-/* ================================================================
-   ТЕМА ДЛЯ СЛАБОВИДЯЩИХ
-   Высокая контрастность и увеличенные шрифты
-================================================================ */
-[data-theme="accessible"] {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f0f0f0;
-    --bg-tertiary: #e0e0e0;
-
-    --primary-blue: #000080;
-    --primary-blue-light: #0000cd;
-    --primary-blue-dark: #000050;
-    --accent-cyan: #008080;
-    --accent-teal: #006666;
-
-    --text-primary: #000000;
-    --text-secondary: #1a1a1a;
-    --text-muted: #333333;
-
-    --border-color: #000000;
-    --border-light: rgba(0, 0, 0, 0.3);
-
-    --glass: rgba(255, 255, 255, 0.95);
-    --glass-border: rgba(0, 0, 0, 0.3);
-
-    --gradient-primary: linear-gradient(135deg, #000080, #0000cd);
-    --gradient-accent: linear-gradient(135deg, #008080, #006666);
-
-    --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.3);
-
-    /* Увеличенные шрифты для доступности */
-    font-size: 18px;
-}
-
-[data-theme="accessible"] * {
-    font-weight: 500 !important;
-    letter-spacing: 0.02em;
-}
-
-[data-theme="accessible"] h1,
-[data-theme="accessible"] h2,
-[data-theme="accessible"] h3,
-[data-theme="accessible"] h4 {
-    font-weight: 700 !important;
-}
-
-[data-theme="accessible"] a:focus,
-[data-theme="accessible"] button:focus {
-    outline: 3px solid var(--primary-blue) !important;
-    outline-offset: 3px;
-}
-
-
-/* ================================================================
-   2. СБРОС СТИЛЕЙ
-================================================================ */
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-}
-
-body {
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--text-primary);
-    background: var(--bg-primary);
-    overflow-x: hidden;
-    min-height: 100vh;
-    transition: background var(--transition), color var(--transition);
-}
-
-
-/* ================================================================
-   3. БАЗОВЫЕ ЭЛЕМЕНТЫ
-================================================================ */
-a {
-    color: inherit;
-    text-decoration: none;
-    transition: color var(--transition);
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-ul, ol {
-    list-style: none;
-}
-
-button {
-    font-family: inherit;
-    cursor: pointer;
-    border: none;
-    background: none;
-}
-
-address {
-    font-style: normal;
-}
-
-
-/* ================================================================
-   4. УТИЛИТЫ
-================================================================ */
-.container {
-    width: 100%;
-    max-width: var(--container);
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.section {
-    padding: 6rem 0;
-    position: relative;
-}
-
-/* Заголовок секции */
-.section__header {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 4rem;
-}
-
-.section__tag {
-    display: inline-block;
-    padding: 0.5rem 1.5rem;
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border-color);
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--primary-blue);
-    margin-bottom: 1.5rem;
-}
-
-.section__title {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-}
-
-.section__desc {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    line-height: 1.8;
-}
-
-/* Placeholder для изображений */
-.placeholder {
-    width: 100%;
-    height: 100%;
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    background: var(--bg-tertiary);
-    border-radius: var(--radius-lg);
-    text-align: center;
-    padding: 2rem;
-    border: 2px dashed var(--border-color);
-}
-
-.placeholder span {
-    font-size: 3rem;
-}
-
-.placeholder p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-}
-
 
 /* ================================================================
    5. КНОПКИ
@@ -463,6 +109,10 @@ address {
     border-color: transparent;
 }
 
+body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
+    color: #ffffff;
+}
+
 .theme-toggle__btn[title]::after {
     content: attr(title);
     position: absolute;
@@ -559,7 +209,6 @@ address {
     transition: background var(--transition), padding var(--transition), box-shadow var(--transition);
 }
 
-/* Состояние при скролле */
 .nav.scrolled {
     background: var(--glass);
     backdrop-filter: blur(20px);
@@ -577,7 +226,6 @@ address {
     justify-content: space-between;
 }
 
-/* Логотип */
 .nav__logo {
     display: flex;
     align-items: center;
@@ -603,7 +251,6 @@ address {
     color: var(--text-muted);
 }
 
-/* Hero-состояние навигации (белый текст на тёмном фоне) */
 .nav:not(.scrolled) .nav__logo-text,
 .nav:not(.scrolled) .nav__links a {
     color: #ffffff;
@@ -613,7 +260,6 @@ address {
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* Ссылки навигации */
 .nav__links {
     display: flex;
     gap: 2.5rem;
@@ -642,7 +288,6 @@ address {
     width: 100%;
 }
 
-/* Мобильный бургер */
 .nav__burger {
     display: none;
     flex-direction: column;
@@ -658,7 +303,7 @@ address {
     transition: transform var(--transition), opacity var(--transition);
 }
 
-.nav:not(.scrolled) .nav__burger span {
+.nav:not(.scrolled) .nav__burger:not(.active) span {
     background: #ffffff;
 }
 
@@ -674,7 +319,6 @@ address {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Мобильное меню */
 .nav__mobile {
     position: fixed;
     top: 0;
@@ -706,7 +350,6 @@ address {
     color: var(--text-primary);
 }
 
-/* Улучшенный контраст для мобильного меню: ссылки и кнопки */
 .nav__mobile a,
 .nav__mobile li {
     color: var(--text-primary);
@@ -743,7 +386,6 @@ address {
     background: var(--gradient-hero);
 }
 
-/* Видео фон */
 .hero__video-bg {
     position: absolute;
     inset: 0;
@@ -762,7 +404,6 @@ address {
     background: linear-gradient(135deg, rgba(15, 45, 92, 0.85) 0%, rgba(26, 75, 140, 0.75) 50%, rgba(37, 99, 235, 0.7) 100%);
 }
 
-/* Placeholder для видео, когда видео отсутствует */
 .hero__video-placeholder {
     width: 100%;
     height: 100%;
@@ -793,7 +434,6 @@ address {
     margin-top: 0.5rem;
 }
 
-/* Контейнер hero */
 .hero__container {
     max-width: 1200px;
     width: 100%;
@@ -805,13 +445,11 @@ address {
     text-align: center;
 }
 
-/* Контент hero */
 .hero__content {
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* Бейдж */
 .hero__badge {
     display: inline-flex;
     align-items: center;
@@ -839,7 +477,6 @@ address {
     50% { opacity: 0.3; box-shadow: none; }
 }
 
-/* Заголовок hero */
 .hero__title {
     font-family: var(--font-display);
     font-size: clamp(2.5rem, 6vw, 4.5rem);
@@ -857,7 +494,6 @@ address {
     background-clip: text;
 }
 
-/* Подзаголовок */
 .hero__subtitle {
     font-size: 1.25rem;
     font-weight: 300;
@@ -870,7 +506,6 @@ address {
     animation: fadeUp 0.8s ease 0.7s both;
 }
 
-/* Кнопки hero */
 .hero__buttons {
     display: flex;
     gap: 1rem;
@@ -889,7 +524,6 @@ address {
     border-color: #ffffff;
 }
 
-/* Индикатор скролла - по центру контента */
 .hero__scroll {
     margin-top: 3rem;
     display: flex;
@@ -931,7 +565,6 @@ address {
     50% { opacity: 0.3; top: 18px; }
 }
 
-/* Версия для слабовидящих - скролл-индикатор */
 [data-theme="accessible"] .hero__scroll {
     margin-top: 1rem;
     padding: 1rem;
@@ -967,7 +600,6 @@ address {
     padding: 2rem 0;
 }
 
-/* Линия трека */
 .education-track__timeline::before {
     content: '';
     position: absolute;
@@ -1002,7 +634,6 @@ address {
     to { width: 100%; }
 }
 
-/* Год обучения */
 .education-track__year {
     flex: 1;
     position: relative;
@@ -1080,10 +711,8 @@ address {
 
 
 /* ================================================================
-   11. СЕКЦИИ КОНТЕНТА
+   11. СЕКЦИИ КОНТЕНТА (about, advantages, cards, tabs)
 ================================================================ */
-
-/* ======== О НАС ======== */
 .about__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1095,7 +724,7 @@ address {
     position: relative;
     border-radius: var(--radius-xl);
     overflow: hidden;
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/9;
     box-shadow: var(--shadow-xl);
 }
 
@@ -1135,6 +764,7 @@ address {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    position: relative;
 }
 
 .about__feature {
@@ -1165,85 +795,83 @@ address {
     color: var(--text-primary);
 }
 
-/* Особенность с изображением при наведении */
 .about__feature--with-image {
     cursor: pointer;
 }
 
-.about__feature-image {
+.about__preview {
     position: absolute;
-    bottom: 0;
-    right: calc(100% + 1rem);
-    width: 280px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(10px);
-    transition: opacity var(--transition), visibility var(--transition), transform var(--transition);
-    z-index: 100;
+    bottom: calc(100% + 0.5rem);
+    left: 0;
+    right: 0;
+    aspect-ratio: 16/9;
     border-radius: var(--radius-md);
     overflow: hidden;
     box-shadow: var(--shadow-xl);
+    background: var(--bg-tertiary);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity var(--transition), visibility var(--transition), transform var(--transition);
+    z-index: 100;
     pointer-events: none;
 }
 
-.about__feature--with-image:hover .about__feature-image {
+.about__preview.active {
     opacity: 1;
     visibility: visible;
-    transform: translateX(0);
+    transform: translateY(0);
 }
 
-.about__feature-image img {
+.about__preview img,
+.about__preview .placeholder-mini {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 160px;
+    height: 100%;
     object-fit: cover;
-    display: block;
+    opacity: 0;
+    transition: opacity var(--transition);
 }
 
-.about__feature-image .placeholder-mini {
-    width: 100%;
-    height: 160px;
+.about__preview [data-preview].active {
+    opacity: 1;
+}
+
+.about__preview .placeholder-mini {
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--bg-tertiary);
     border: 2px dashed var(--border-color);
-    font-size: 2rem;
+    object-fit: initial;
 }
 
-/* Подсказка о наведении */
-.about__feature--with-image::after {
-    content: 'Наведите для просмотра';
-    position: absolute;
-    right: 1rem;
-    font-size: 0.9rem;
+.about__feature-touch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-left: auto;
     opacity: 0.5;
     transition: opacity var(--transition);
+    color: var(--text-secondary);
+    flex-shrink: 0;
 }
 
-.about__feature--with-image:hover::after {
+.about__feature-touch .icon {
+    width: 16px;
+    height: 16px;
+}
+
+.about__feature-touch::after {
+    content: 'Наведите для просмотра';
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.about__feature--with-image:hover .about__feature-touch {
     opacity: 0;
-}
-
-/* На мобильных устройствах - изображение снизу */
-@media (max-width: 1200px) {
-    .about__feature-image {
-        position: fixed;
-        bottom: auto;
-        top: 50%;
-        left: 50%;
-        right: auto;
-        transform: translate(-50%, -50%) scale(0.9);
-        width: 300px;
-        border: 3px solid var(--primary-blue);
-    }
-
-    .about__feature--with-image:hover .about__feature-image {
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-    .about__feature--with-image::after {
-    content: '👁️';
-}
 }
 
 
@@ -1268,7 +896,6 @@ address {
     overflow: hidden;
 }
 
-/* Линия сверху карточки */
 .card::before {
     content: '';
     position: absolute;
@@ -1302,6 +929,27 @@ address {
     justify-content: center;
     font-size: 2rem;
     margin-bottom: 1.5rem;
+}
+
+.card__icon .icon {
+    width: 1.4em;
+    height: 1.4em;
+    fill: #ffffff;
+    color: #ffffff;
+}
+
+/* Ensure icons placed on gradient/colored badges are white for contrast.
+   Must beat the base rule body:not([data-theme="dark"]) .icon (specificity 0,2,1). */
+.card__icon,
+.career__role-icon {
+    color: #ffffff;
+}
+
+body:not([data-theme="dark"]) .card__icon .icon,
+body:not([data-theme="dark"]) .career__role-icon .icon {
+    color: #ffffff;
+    fill: currentColor !important;
+    stroke: currentColor !important;
 }
 
 .card h3 {
@@ -1417,9 +1065,12 @@ address {
 
 .career__grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    /* Ensure right column has a sensible max width to avoid overly narrow cards
+       on very wide screens and keep left column flexible. */
+    grid-template-columns: 1fr minmax(320px, 420px);
     gap: 3rem;
     align-items: start;
+    grid-auto-rows: auto;
 }
 
 .career__roles {
@@ -1437,6 +1088,9 @@ address {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     transition: background var(--transition), border-color var(--transition), transform var(--transition);
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 72px; /* keep consistent visual rhythm */
 }
 
 .career__role:hover {
@@ -1495,6 +1149,11 @@ address {
     background: var(--bg-primary);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-xl);
+    box-sizing: border-box;
+    align-self: stretch; /* make right panel match left column height when possible */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .career__companies h3 {
@@ -1521,6 +1180,7 @@ address {
     font-size: 0.85rem;
     color: var(--text-primary);
     transition: background var(--transition), transform var(--transition);
+    word-break: break-word;
 }
 
 .career__logos div:hover {
@@ -1616,7 +1276,7 @@ address {
 }
 
 
-/* ======== ГАЛЕРЕЯ ======== */
+/* ======== ГАЛЕРЕЯ (см. responsive файл для media queries) ======== */
 .gallery {
     background: var(--bg-secondary);
 }
@@ -1659,7 +1319,6 @@ address {
     min-height: 100%;
 }
 
-/* ======== СЛАЙДЕР ГАЛЕРЕИ ======== */
 .gallery__slider {
     position: relative;
     width: 100%;
@@ -1674,15 +1333,6 @@ address {
     display: flex;
     transition: transform 0.5s ease;
     will-change: transform;
-}
-
-.gallery__slide {
-    min-width: 100%;
-    flex: 0 0 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
 }
 
 .gallery__slide {
@@ -1729,22 +1379,10 @@ address {
     color: rgba(255,255,255,0.95);
 }
 
-/* Arrow size */
 .gallery__nav span {
     font-size: 28px;
     line-height: 1;
     font-weight: 600;
-}
-
-/* Make nav touch-friendly on mobile by increasing width slightly */
-@media (max-width: 900px) {
-    .gallery__nav { width: 48px; height: 100%; }
-    .gallery__nav span { font-size: 20px; }
-}
-
-@media (max-width: 600px) {
-    .gallery__nav { width: 44px; }
-    .gallery__nav span { font-size: 16px; }
 }
 
 .gallery__dots {
@@ -1769,16 +1407,6 @@ address {
 .gallery__dot.active {
     background: #ffffff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
-@media (max-width: 900px) {
-    .gallery__slide img { height: 50vh; }
-    .gallery__nav { width: 40px; height: 100%; }
-}
-
-@media (max-width: 600px) {
-    .gallery__slide img { height: 40vh; }
-    .gallery__nav { width: 36px; height: 100%; }
 }
 
 
@@ -2004,7 +1632,6 @@ address {
     transform: translateX(0);
 }
 
-/* Анимации Hero */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -2013,181 +1640,4 @@ address {
 @keyframes fadeRight {
     from { opacity: 0; transform: translateX(30px); }
     to { opacity: 1; transform: translateX(0); }
-}
-
-
-/* ================================================================
-   14. МЕДИА-ЗАПРОСЫ
-================================================================ */
-
-/* Планшеты (до 1200px) */
-@media (max-width: 1200px) {
-    .hero__container {
-        justify-content: center;
-    }
-
-    .about__grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .about__image {
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
-    .advantages__grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .career__grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer__grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Трек обучения - вертикальный на планшетах */
-    .education-track__timeline {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .education-track__timeline::before,
-    .education-track__timeline::after {
-        display: none;
-    }
-
-    .education-track__year {
-        padding: 0;
-    }
-
-    .education-track__marker {
-        margin-bottom: 1rem;
-    }
-}
-
-/* Мобильные (до 768px) */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 1.5rem;
-    }
-
-    .section {
-        padding: 4rem 0;
-    }
-
-    /* Переключатель темы */
-    .theme-toggle {
-        top: auto;
-        bottom: 1rem;
-        right: 1rem;
-        flex-direction: row;
-    }
-
-    /* Навигация */
-    .nav__links,
-    .nav__cta {
-        display: none;
-    }
-
-    .nav__burger {
-        display: flex;
-    }
-
-    /* Hero */
-    .hero__badge {
-        font-size: 0.8rem;
-    }
-
-    /* ПРЕИМУЩЕСТВА */
-    .advantages__grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* О НАС */
-    .about__features {
-        grid-template-columns: 1fr;
-    }
-
-    /* ОТЗЫВЫ */
-    .testimonials__grid {
-        grid-template-columns: 1fr;
-    }
-
-    .testimonial--featured {
-        grid-column: span 1;
-    }
-
-    /* ГАЛЕРЕЯ */
-    .gallery__grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(3, 180px);
-    }
-
-    .gallery__item--wide,
-    .gallery__item--tall {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-
-    /* ПРИЗЫВ К ДЕЙСТВИЮ */
-    .cta__info {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    /* Footer */
-    .footer__grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .footer__bottom {
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
-    }
-}
-
-/* Маленькие мобильные (до 480px) */
-@media (max-width: 480px) {
-    .container {
-        padding: 0 1rem;
-    }
-
-    .hero__buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .btn--large {
-        width: 100%;
-    }
-
-    .career__role {
-        flex-wrap: wrap;
-    }
-
-    .career__role-salary {
-        width: 100%;
-        text-align: left;
-        margin-top: 1rem;
-        padding-top: 1rem;
-        border-top: 1px solid var(--border-color);
-    }
-
-    .career__logos {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Трек обучения */
-    .education-track__skills {
-        flex-direction: column;
-    }
-
-    .education-track__skill {
-        text-align: center;
-    }
 }
