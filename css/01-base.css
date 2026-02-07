@@ -68,7 +68,6 @@ body:not([data-theme="dark"]) .icon {
 .gallery__item img,
 .about__image img,
 .about__feature-image img,
-.testimonial__photo img,
 .nav__logo-img {
     background: var(--bg-secondary);
     border-radius: 8px;
@@ -86,7 +85,6 @@ body:not([data-theme="dark"]) .icon {
 [data-theme="dark"] .gallery__item img,
 [data-theme="dark"] .about__image img,
 [data-theme="dark"] .about__feature-image img,
-[data-theme="dark"] .testimonial__photo img,
 [data-theme="dark"] .nav__logo-img {
     border-color: rgba(255,255,255,0.06);
     box-shadow: 0 10px 28px rgba(0,0,0,0.6);

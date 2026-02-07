@@ -102,15 +102,6 @@
         opacity: 0.7;
     }
 
-    /* ОТЗЫВЫ */
-    .testimonials__grid {
-        grid-template-columns: 1fr;
-    }
-
-    .testimonial--featured {
-        grid-column: span 1;
-    }
-
     /* ГАЛЕРЕЯ */
     .gallery__grid {
         grid-template-columns: repeat(2, 1fr);
