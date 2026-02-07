@@ -77,6 +77,10 @@
     --transition: 0.3s ease;
     --transition-slow: 0.6s ease;
 
+    /* Variables for elements that were hard-coded white so themes can override */
+    --progress-color: #ffffff;
+    --cta-btn-bg: #ffffff;
+
     /* Z-index слои */
     --z-bg: -1;
     --z-default: 1;
@@ -110,6 +114,59 @@
     --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
     --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.6);
     --shadow-glow: 0 0 40px rgba(14, 165, 233, 0.3);
+}
+
+/* Improve contrast for dark theme: lighter accents and adapted gradients */
+[data-theme="dark"] {
+    /* Accent / brand colors adjusted for visibility on dark backgrounds */
+    --primary-blue: #60a5fa; /* lighter blue */
+    --primary-blue-light: #93c5fd;
+    --primary-blue-dark: #1e3a8a;
+    --accent-cyan: #38bdf8;
+    --accent-teal: #2dd4bf;
+
+    /* Gradients tuned for dark surfaces */
+    --gradient-primary: linear-gradient(135deg, var(--primary-blue-dark), var(--primary-blue));
+    --gradient-accent: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
+    --gradient-hero: linear-gradient(135deg, rgba(2,6,23,1) 0%, rgba(15,23,42,1) 50%, rgba(30,41,59,1) 100%);
+
+    /* Slightly more transparent glass to see background behind controls */
+    --glass: rgba(2, 6, 23, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.04);
+
+    /* UI elements that were hard-coded white should adapt */
+    --progress-color: var(--primary-blue-light);
+    --cta-btn-bg: #ffffff;
+}
+
+/* Dark-theme component overrides to remove bright white glows and improve contrast */
+[data-theme="dark"] .hero__video-overlay {
+    background: linear-gradient(135deg, rgba(2,6,23,0.9) 0%, rgba(6,12,24,0.85) 50%, rgba(2,6,23,0.9) 100%);
+}
+
+[data-theme="dark"] .hero__video-placeholder,
+[data-theme="dark"] .hero__video-placeholder-text,
+[data-theme="dark"] .hero__video-placeholder-path {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+[data-theme="dark"] .hero__badge {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .cta__glow {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+}
+
+[data-theme="dark"] .theme-toggle {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+}
+
+[data-theme="dark"] .card::before {
+    background: var(--gradient-primary);
 }
 
 /* ================================================================
@@ -473,7 +530,7 @@ address {
 
 .preloader__progress {
     height: 100%;
-    background: #ffffff;
+    background: var(--progress-color);
     animation: loading 2s ease forwards;
 }
 
@@ -1631,7 +1688,7 @@ address {
 }
 
 .cta__buttons .btn--primary {
-    background: #ffffff;
+    background: var(--cta-btn-bg);
     color: var(--primary-blue);
 }
 
