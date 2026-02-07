@@ -77,7 +77,7 @@
     --transition: 0.3s ease;
     --transition-slow: 0.6s ease;
 
-    /* Variables for elements that were hard-coded white so themes can override */
+    /* Переменные для элементов, которые были захардкожены белым — темы могут их переопределять */
     --progress-color: #ffffff;
     --cta-btn-bg: #ffffff;
 
@@ -116,30 +116,29 @@
     --shadow-glow: 0 0 40px rgba(14, 165, 233, 0.3);
 }
 
-/* Improve contrast for dark theme: lighter accents and adapted gradients */
+/* Улучшение контраста для тёмной темы: более светлые акценты и адаптированные градиенты */
 [data-theme="dark"] {
-    /* Accent / brand colors adjusted for visibility on dark backgrounds */
-    --primary-blue: #60a5fa; /* lighter blue */
+    /* Акцентные/брендовые цвета, скорректированные для видимости на тёмном фоне */
+    --primary-blue: #60a5fa; /* более светлый синий */
     --primary-blue-light: #93c5fd;
     --primary-blue-dark: #1e3a8a;
     --accent-cyan: #38bdf8;
     --accent-teal: #2dd4bf;
 
-    /* Gradients tuned for dark surfaces */
+    /* Градиенты, настроенные для тёмных поверхностей */
     --gradient-primary: linear-gradient(135deg, var(--primary-blue-dark), var(--primary-blue));
     --gradient-accent: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
     --gradient-hero: linear-gradient(135deg, rgba(2,6,23,1) 0%, rgba(15,23,42,1) 50%, rgba(30,41,59,1) 100%);
 
-    /* Slightly more transparent glass to see background behind controls */
+    /* Немного более прозрачный стеклянный фон, чтобы видеть фон за контролами */
     --glass: rgba(2, 6, 23, 0.65);
     --glass-border: rgba(255, 255, 255, 0.04);
 
-    /* UI elements that were hard-coded white should adapt */
+    /* Элементы интерфейса, ранее захардкоженные белым, должны адаптироваться */
     --progress-color: var(--primary-blue-light);
     --cta-btn-bg: #ffffff;
 }
 
-/* Dark-theme component overrides to remove bright white glows and improve contrast */
 [data-theme="dark"] .hero__video-overlay {
     background: linear-gradient(135deg, rgba(2,6,23,0.9) 0%, rgba(6,12,24,0.85) 50%, rgba(2,6,23,0.9) 100%);
 }
@@ -168,6 +167,8 @@
 [data-theme="dark"] .card::before {
     background: var(--gradient-primary);
 }
+
+
 
 /* ================================================================
    ТЕМА ДЛЯ СЛАБОВИДЯЩИХ
@@ -1058,7 +1059,7 @@ address {
    11. СЕКЦИИ КОНТЕНТА
 ================================================================ */
 
-/* ======== ABOUT ======== */
+/* ======== О НАС ======== */
 .about__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1218,7 +1219,7 @@ address {
 }
 
 
-/* ======== ADVANTAGES ======== */
+/* ======== ПРЕИМУЩЕСТВА ======== */
 .advantages {
     background: var(--bg-secondary);
 }
@@ -1289,7 +1290,7 @@ address {
 }
 
 
-/* ======== CURRICULUM ======== */
+/* ======== УЧЕБНЫЙ ПЛАН ======== */
 .tabs__buttons {
     display: flex;
     justify-content: center;
@@ -1381,7 +1382,7 @@ address {
 }
 
 
-/* ======== CAREER ======== */
+/* ======== КАРЬЕРА ======== */
 .career {
     background: var(--bg-secondary);
 }
@@ -1500,7 +1501,7 @@ address {
 }
 
 
-/* ======== TESTIMONIALS ======== */
+/* ======== ОТЗЫВЫ ======== */
 .testimonials {
     position: relative;
     overflow: hidden;
@@ -1587,7 +1588,7 @@ address {
 }
 
 
-/* ======== GALLERY ======== */
+/* ======== ГАЛЕРЕЯ ======== */
 .gallery {
     background: var(--bg-secondary);
 }
@@ -1631,7 +1632,7 @@ address {
 }
 
 
-/* ======== CTA ======== */
+/* ======== ПРИЗЫВ К ДЕЙСТВИЮ ======== */
 .cta {
     text-align: center;
     position: relative;
@@ -1950,17 +1951,17 @@ address {
         font-size: 0.8rem;
     }
 
-    /* Advantages */
+    /* ПРЕИМУЩЕСТВА */
     .advantages__grid {
         grid-template-columns: 1fr;
     }
 
-    /* About */
+    /* О НАС */
     .about__features {
         grid-template-columns: 1fr;
     }
 
-    /* Testimonials */
+    /* ОТЗЫВЫ */
     .testimonials__grid {
         grid-template-columns: 1fr;
     }
@@ -1969,7 +1970,7 @@ address {
         grid-column: span 1;
     }
 
-    /* Gallery */
+    /* ГАЛЕРЕЯ */
     .gallery__grid {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 180px);
@@ -1981,7 +1982,7 @@ address {
         grid-row: span 1;
     }
 
-    /* CTA */
+    /* ПРИЗЫВ К ДЕЙСТВИЮ */
     .cta__info {
         flex-direction: column;
         gap: 2rem;
