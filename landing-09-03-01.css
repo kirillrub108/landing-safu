@@ -851,7 +851,7 @@ address {
 
 /* Версия для слабовидящих - скролл-индикатор */
 [data-theme="accessible"] .hero__scroll {
-    margin-top: 4rem;
+    margin-top: 1rem;
     padding: 1rem;
     background: rgba(0, 0, 0, 0.5);
     border-radius: var(--radius-md);
