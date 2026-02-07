@@ -11,6 +11,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;900&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/images/favicon/site.webmanifest">
+
     <!-- Стили -->
     <link rel="stylesheet" href="landing-09-03-01.css">
 </head>
@@ -100,8 +106,8 @@
                 <h1 class="hero__title"><span class="hero__highlight">Информатика</span><br>и вычислительная<br>техника</h1>
                 <p class="hero__subtitle">Создавай будущее в сердце Арктики. Направление 09.03.01 — твой путь в мир высоких технологий и цифровых инноваций в Северодвинске.</p>
                 <div class="hero__buttons">
-                    <a href="https://narfu.ru/priem/" class="btn btn--primary btn--large" target="_blank" rel="noopener">Поступить сейчас <span class="btn__arrow">→</span></a>
                     <a href="#about" class="btn btn--secondary btn--large">Узнать больше</a>
+                    <a href="https://narfu.ru/priem/" class="btn btn--primary btn--large" target="_blank" rel="noopener">Поступить сейчас <span class="btn__arrow">➜</span></a>
                 </div>
             </div>
             <!-- Индикатор скролла - по центру контента -->
@@ -533,26 +539,31 @@
                 <span class="section__tag">Галерея</span>
                 <h2 class="section__title">Жизнь на направлении</h2>
             </header>
-            <!-- Пути к фото для галереи: assets/images/gallery/ -->
-            <div class="gallery__grid reveal">
-                <div class="gallery__item gallery__item--wide">
-                    <img src="assets/images/gallery/hackathon.jpg" alt="Хакатон" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'><span>📸</span><p>assets/images/gallery/hackathon.jpg</p></div>'">
+            <!-- Слайдер галереи (адаптивный, клавиши, точки, автоплей) -->
+            <div class="gallery__slider reveal" aria-label="Галерея фотографий">
+                <button class="gallery__nav gallery__nav--prev" aria-label="Предыдущая"><span>‹</span></button>
+                <div class="gallery__track">
+                    <div class="gallery__slide">
+                        <img src="assets/images/gallery/hackathon.jpg" alt="Хакатон" width="1920" height="1080" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'><span>📸</span><p>assets/images/gallery/hackathon.jpg</p></div>'">
+                    </div>
+                    <div class="gallery__slide">
+                        <img src="assets/images/gallery/lab.jpg" alt="Лаборатория" width="1920" height="1080" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'><span>📸</span><p>assets/images/gallery/lab.jpg</p></div>'">
+                    </div>
+                    <div class="gallery__slide">
+                        <img src="assets/images/gallery/defense.jpg" alt="Защита проекта" width="1920" height="1080" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'><span>📸</span><p>assets/images/gallery/defense.jpg</p></div>'">
+                    </div>
+                    <div class="gallery__slide">
+                        <img src="assets/images/gallery/campus.jpg" alt="Кампус" width="1920" height="1080" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'><span>📸</span><p>assets/images/gallery/campus.jpg</p></div>'">
+                    </div>
+                    <div class="gallery__slide">
+                        <img src="assets/images/gallery/students.jpg" alt="Студенты" width="1920" height="1080" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'><span>📸</span><p>assets/images/gallery/students.jpg</p></div>'">
+                    </div>
+                    <div class="gallery__slide">
+                        <img src="assets/images/gallery/conference.jpg" alt="Конференция" width="1920" height="1080" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'><span>📸</span><p>assets/images/gallery/conference.jpg</p></div>'">
+                    </div>
                 </div>
-                <div class="gallery__item">
-                    <img src="assets/images/gallery/lab.jpg" alt="Лаборатория" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'><span>📸</span><p>assets/images/gallery/lab.jpg</p></div>'">
-                </div>
-                <div class="gallery__item">
-                    <img src="assets/images/gallery/defense.jpg" alt="Защита проекта" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'><span>📸</span><p>assets/images/gallery/defense.jpg</p></div>'">
-                </div>
-                <div class="gallery__item gallery__item--tall">
-                    <img src="assets/images/gallery/campus.jpg" alt="Кампус" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'><span>📸</span><p>assets/images/gallery/campus.jpg</p></div>'">
-                </div>
-                <div class="gallery__item">
-                    <img src="assets/images/gallery/students.jpg" alt="Студенты" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'><span>📸</span><p>assets/images/gallery/students.jpg</p></div>'">
-                </div>
-                <div class="gallery__item">
-                    <img src="assets/images/gallery/conference.jpg" alt="Конференция" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'><span>📸</span><p>assets/images/gallery/conference.jpg</p></div>'">
-                </div>
+                <button class="gallery__nav gallery__nav--next" aria-label="Следующая"><span>›</span></button>
+                <div class="gallery__dots" role="tablist" aria-label="Точки галереи"></div>
             </div>
         </div>
     </section>

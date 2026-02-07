@@ -706,6 +706,30 @@ address {
     color: var(--text-primary);
 }
 
+/* Улучшенный контраст для мобильного меню: ссылки и кнопки */
+.nav__mobile a,
+.nav__mobile li {
+    color: var(--text-primary);
+}
+
+.nav__mobile .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav__mobile .btn--primary {
+    background: var(--gradient-primary);
+    color: #ffffff;
+    border: none;
+}
+
+.nav__mobile .btn--secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+
 
 /* ================================================================
    9. HERO СЕКЦИЯ С ВИДЕО
@@ -1633,6 +1657,128 @@ address {
 
 .gallery__item .placeholder {
     min-height: 100%;
+}
+
+/* ======== СЛАЙДЕР ГАЛЕРЕИ ======== */
+.gallery__slider {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: var(--bg-primary);
+}
+
+.gallery__track {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+.gallery__slide {
+    min-width: 100%;
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.gallery__slide {
+    min-width: 100%;
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    aspect-ratio: 16 / 9; /* force 16:9 slide container */
+}
+
+.gallery__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    aspect-ratio: 16 / 9;
+}
+
+.gallery__nav {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 64px;
+    background: transparent;
+    color: rgba(255,255,255,0.85);
+    border: none;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 30;
+    transition: background 0.12s ease, color 0.12s ease;
+}
+
+.gallery__nav--prev { left: 0; }
+.gallery__nav--next { right: 0; }
+
+.gallery__nav:hover {
+    background: rgba(0,0,0,0.12);
+    color: rgba(255,255,255,0.95);
+}
+
+/* Arrow size */
+.gallery__nav span {
+    font-size: 28px;
+    line-height: 1;
+    font-weight: 600;
+}
+
+/* Make nav touch-friendly on mobile by increasing width slightly */
+@media (max-width: 900px) {
+    .gallery__nav { width: 48px; height: 100%; }
+    .gallery__nav span { font-size: 20px; }
+}
+
+@media (max-width: 600px) {
+    .gallery__nav { width: 44px; }
+    .gallery__nav span { font-size: 16px; }
+}
+
+.gallery__dots {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 12px;
+    display: flex;
+    gap: 8px;
+    z-index: 20;
+}
+
+.gallery__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    border: 2px solid rgba(0,0,0,0.08);
+}
+
+.gallery__dot.active {
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 900px) {
+    .gallery__slide img { height: 50vh; }
+    .gallery__nav { width: 40px; height: 100%; }
+}
+
+@media (max-width: 600px) {
+    .gallery__slide img { height: 40vh; }
+    .gallery__nav { width: 36px; height: 100%; }
 }
 
 
