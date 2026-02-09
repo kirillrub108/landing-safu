@@ -102,6 +102,63 @@
         padding: 0.4rem 1rem;
     }
 
+    /* Декор hero — уменьшаем на мобилках */
+    .hero__dots {
+        width: 100px;
+        height: 100px;
+        opacity: 0.35;
+    }
+
+    .hero__circle--1 {
+        width: 160px;
+        height: 160px;
+    }
+
+    .hero__circle--2 {
+        display: none;
+    }
+
+    .hero__line {
+        display: none;
+    }
+
+    /* Декор секций — уменьшаем/скрываем на мобилках */
+    .decor {
+        display: none;
+    }
+
+    .about::before,
+    .education-track::before,
+    .advantages::after,
+    .curriculum::before,
+    .career::before,
+    .gallery::before,
+    .footer::before {
+        width: 80px;
+        height: 80px;
+        opacity: 0.3;
+    }
+
+    .about::after,
+    .education-track::after,
+    .advantages::before,
+    .curriculum::after,
+    .career::after,
+    .gallery::after,
+    .footer::after {
+        display: none;
+    }
+
+    .cta::before {
+        width: 100px;
+        height: 100px;
+        opacity: 0.3;
+    }
+
+    .cta::after {
+        display: none;
+    }
+
     /* ПРЕИМУЩЕСТВА */
     .advantages__grid {
         grid-template-columns: 1fr;

@@ -26,6 +26,27 @@ body {
     transition: background var(--transition), color var(--transition);
 }
 
+/* Зернистость (grain) — шум поверх всего сайта */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    pointer-events: none;
+    opacity: 0.30;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px 200px;
+}
+
+[data-theme="dark"] body::before {
+    opacity: 0.30;
+}
+
+[data-theme="accessible"] body::before {
+    display: none;
+}
+
 /* SVG иконки используют currentColor для адаптации к теме */
 .icon {
     display: inline-block;
@@ -191,7 +212,7 @@ address {
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--primary-blue);
+    color: var(--text-primary);
     margin-bottom: 1.5rem;
 }
 
