@@ -1109,8 +1109,8 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 .curriculum__item {
     display: flex;
     align-items: flex-start;
-    gap: 1.25rem;
-    padding: 1.5rem 1.75rem;
+    gap: 1rem;
+    padding: 1.25rem;
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
@@ -1123,8 +1123,8 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 }
 
 .curriculum__item > span {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     background: var(--gradient-primary);
     border-radius: var(--radius-sm);
     display: flex;
@@ -1132,8 +1132,14 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     justify-content: center;
     font-family: var(--font-display);
     font-weight: 700;
+    font-size: 0.85rem;
     color: #ffffff;
     flex-shrink: 0;
+}
+
+.curriculum__item > div {
+    flex: 1;
+    min-width: 0;
 }
 
 .curriculum__item h4 {
@@ -1144,7 +1150,9 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 }
 
 .curriculum__item p {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
+    line-height: 1.3;
+    margin-bottom: 0.25rem;
     color: var(--text-secondary);
 }
 
