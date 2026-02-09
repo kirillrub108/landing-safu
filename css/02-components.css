@@ -1018,8 +1018,8 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 .curriculum__item {
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
-    padding: 1.25rem;
+    gap: 1.25rem;
+    padding: 1.5rem 1.75rem;
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
@@ -1032,8 +1032,8 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 }
 
 .curriculum__item > span {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     background: var(--gradient-primary);
     border-radius: var(--radius-sm);
     display: flex;
@@ -1041,27 +1041,19 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     justify-content: center;
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 0.85rem;
     color: #ffffff;
     flex-shrink: 0;
 }
 
-.curriculum__item > div {
-    flex: 1;
-    min-width: 0;
-}
-
 .curriculum__item h4 {
     font-family: var(--font-display);
-    font-size: 0.95rem;
-    line-height: 1.3;
+    font-size: 1rem;
     margin-bottom: 0.25rem;
     color: var(--text-primary);
 }
 
 .curriculum__item p {
     font-size: 0.85rem;
-    line-height: 1.5;
     color: var(--text-secondary);
 }
 
@@ -1438,7 +1430,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 ================================================================ */
 .footer {
     background: var(--bg-secondary);
-    padding: 5rem 0 2rem;
+    padding: 3.5rem 0 2rem;
     border-top: 1px solid var(--border-color);
 }
 
@@ -1451,14 +1443,14 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 
 .footer__brand p {
     margin-top: 1rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.7;
     color: var(--text-secondary);
 }
 
 .footer__col h4 {
     font-family: var(--font-display);
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-bottom: 1.25rem;
     color: var(--text-primary);
 }
@@ -1468,7 +1460,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 }
 
 .footer__col a {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--text-secondary);
     transition: color var(--transition);
 }
@@ -1482,7 +1474,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 0.75rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--text-secondary);
 }
 
