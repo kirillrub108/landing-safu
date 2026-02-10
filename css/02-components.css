@@ -1633,7 +1633,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 
 .decor--line {
     width: 1px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15), transparent);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), transparent);
 }
 
 .decor--cross {
