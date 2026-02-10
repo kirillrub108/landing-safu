@@ -29,19 +29,35 @@
 
 .btn--primary:hover {
     transform: translateY(-3px);
-    box-shadow: var(--shadow-xl);
+    box-shadow: 0 10px 30px rgba(91, 155, 245, 0.4);
 }
 
 .btn--secondary {
     background: transparent;
     color: var(--text-primary);
     border: 2px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.btn--secondary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    clip-path: inset(50% 50% 50% 50% round 50px);
+    transition: clip-path 0.25s ease;
+    z-index: -1;
+}
+
+.btn--secondary:hover::before {
+    clip-path: inset(-5% -5% -5% -5% round 50px);
 }
 
 .btn--secondary:hover {
-    background: var(--bg-tertiary);
-    border-color: var(--primary-blue);
-    color: var(--primary-blue);
+    border-color: transparent;
+    color: #1a1a2e !important;
 }
 
 .btn--small {
@@ -991,7 +1007,7 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #7db8ff, #a8d4ff);
+    background: #9dc2e6;
     clip-path: inset(50% 50% 50% 50% round 80px);
     transition: clip-path 0.25s ease;
     z-index: 0;
@@ -1091,13 +1107,30 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     font-weight: 500;
     color: var(--text-secondary);
     cursor: pointer;
-    transition: background var(--transition), color var(--transition), border-color var(--transition);
+    position: relative;
+    overflow: hidden;
+    transition: color 0.25s ease, border-color 0.25s ease;
+    z-index: 0;
+}
+
+.tabs__btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    clip-path: inset(50% 50% 50% 50% round 80px);
+    transition: clip-path 0.25s ease;
+    z-index: -1;
+}
+
+.tabs__btn:hover::before,
+.tabs__btn.active::before {
+    clip-path: inset(-5% -5% -5% -5% round 0px);
 }
 
 .tabs__btn:hover,
 .tabs__btn.active {
-    background: var(--gradient-primary);
-    color: #ffffff;
+    color: var(--bg-dark, #1a1a2e);
     border-color: transparent;
 }
 
@@ -1482,12 +1515,12 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 }
 
 .cta__buttons .btn--primary {
-    background: var(--cta-btn-bg);
-    color: var(--primary-blue);
+    background: var(--gradient-primary);
+    color: #ffffff;
 }
 
 .cta__buttons .btn--primary:hover {
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(91, 155, 245, 0.4);
 }
 
 .cta__buttons .btn--secondary {
@@ -1496,8 +1529,9 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 }
 
 .cta__buttons .btn--secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: #ffffff;
+    background: transparent;
+    border-color: transparent;
+    color: var(--bg-dark, #1a1a2e);
 }
 
 .cta__info {
@@ -1599,12 +1633,29 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     font-weight: 600;
     font-size: 0.8rem;
     color: var(--text-secondary);
-    transition: background var(--transition), color var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    transition: color 0.25s ease;
+}
+
+.footer__socials a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    border-radius: inherit;
+    clip-path: inset(50% 50% 50% 50% round 8px);
+    transition: clip-path 0.25s ease;
+    z-index: -1;
+}
+
+.footer__socials a:hover::before {
+    clip-path: inset(-5% -5% -5% -5% round 0px);
 }
 
 .footer__socials a:hover {
-    background: var(--gradient-primary);
-    color: #ffffff;
+    color: var(--bg-dark, #1a1a2e);
 }
 
 .footer__bottom {
@@ -1631,14 +1682,14 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 }
 
 .decor--dots {
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.4) 2px, transparent 2px);
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 2px, transparent 2px);
     background-size: 20px 20px;
     border-radius: 50%;
 }
 
 .decor--ring {
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.15);
 }
 
 .decor--ring-dashed {
@@ -1660,7 +1711,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 .decor--cross::after {
     content: '';
     position: absolute;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 1px;
 }
 
@@ -1683,7 +1734,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 .decor--diamond {
     width: 14px;
     height: 14px;
-    border: 2px solid rgba(255, 255, 255, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.15);
     transform: rotate(45deg);
 }
 
