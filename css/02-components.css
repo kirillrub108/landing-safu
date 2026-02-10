@@ -23,7 +23,7 @@
 }
 
 .btn--primary {
-    background: var(--gradient-primary);
+    background: var(--primary-blue);
     color: #ffffff;
 }
 
@@ -120,7 +120,7 @@
 }
 
 .theme-toggle__btn.active {
-    background: var(--gradient-primary);
+    background: var(--primary-blue);
     color: #ffffff;
     border-color: transparent;
 }
@@ -296,7 +296,7 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--gradient-primary);
+    background: var(--primary-blue);
     transition: width var(--transition);
 }
 
@@ -378,7 +378,7 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
 }
 
 .nav__mobile .btn--primary {
-    background: var(--gradient-primary);
+    background: var(--primary-blue);
     color: #ffffff;
     border: none;
 }
@@ -725,7 +725,7 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
     top: 50%;
     left: 0;
     height: 4px;
-    background: var(--gradient-primary);
+    background: var(--primary-blue);
     transform: translateY(-50%);
     z-index: 1;
     animation: trackProgress 2s ease forwards;
@@ -1026,7 +1026,7 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
 .card__icon {
     width: 70px;
     height: 70px;
-    background: var(--gradient-primary);
+    background: var(--primary-blue);
     border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
@@ -1039,7 +1039,7 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
 }
 
 .card:hover .card__icon {
-    background: var(--gradient-primary);
+    background: var(--primary-blue);
 }
 
 .card__icon .icon {
@@ -1173,7 +1173,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 .curriculum__item > span {
     width: 40px;
     height: 40px;
-    background: var(--gradient-primary);
+    background: var(--primary-blue);
     border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
@@ -1248,7 +1248,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 .career__role-icon {
     width: 55px;
     height: 55px;
-    background: var(--gradient-primary);
+    background: var(--primary-blue);
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
@@ -1515,7 +1515,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 }
 
 .cta__buttons .btn--primary {
-    background: var(--gradient-primary);
+    background: var(--primary-blue);
     color: #ffffff;
 }
 
