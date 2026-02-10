@@ -1087,6 +1087,11 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     color: var(--bg-dark, #1a1a2e);
 }
 
+[data-theme="dark"] .card:hover h3,
+[data-theme="dark"] .card:hover p {
+    color: #ffffff;
+}
+
 
 /* ======== УЧЕБНЫЙ ПЛАН ======== */
 .tabs__buttons {

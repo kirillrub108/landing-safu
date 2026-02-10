@@ -162,7 +162,7 @@
 }
 
 [data-theme="dark"] .card::before {
-    background: var(--gradient-primary);
+    background: rgba(0, 0, 0, 0.7);
 }
 
 
