@@ -1136,7 +1136,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 .tabs__btn:hover,
 .tabs__btn.active {
     color: var(--bg-dark, #1a1a2e);
-    border-color: transparent;
+    border-color: var(--primary-blue);
 }
 
 .tabs__panel {
@@ -1242,6 +1242,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     box-sizing: border-box;
     width: 100%;
     min-height: 72px; /* сохраняем консистентный визуальный ритм */
+    overflow: hidden;
 }
 
 .career__role:hover {
@@ -1264,6 +1265,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 
 .career__role-info {
     flex: 1;
+    min-width: 0;
 }
 
 .career__role-info h4 {
@@ -1280,6 +1282,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 
 .career__role-salary {
     text-align: right;
+    flex-shrink: 0;
 }
 
 .career__role-salary span {
