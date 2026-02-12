@@ -217,3 +217,26 @@
     outline: 3px solid var(--primary-blue) !important;
     outline-offset: 3px;
 }
+
+/* Иконка тёмной темы должна быть чёрной в режиме для слабовидящих */
+[data-theme="accessible"] .theme-toggle__btn[data-theme="dark"] {
+    color: #000000;
+}
+
+[data-theme="accessible"] .theme-toggle__btn[data-theme="dark"] .icon {
+    color: #000000 !important;
+}
+
+/* Карьера — равные колонки чтобы компании вмещались при увеличенном шрифте */
+[data-theme="accessible"] .career__grid {
+    grid-template-columns: 1fr 1fr;
+}
+
+[data-theme="accessible"] .career__logos div {
+    white-space: normal;
+}
+
+/* CTA секция — тёмный фон для контраста с белым текстом */
+[data-theme="accessible"] .cta {
+    background: var(--primary-blue-dark);
+}
