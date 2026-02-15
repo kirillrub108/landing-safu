@@ -177,13 +177,27 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
 
 .preloader__logo {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 2.8rem;
     font-weight: 700;
     color: #ffffff;
-    margin-bottom: 1rem;
-    animation: pulse 1.5s ease-in-out infinite;
-    max-width: 400px;
-    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    line-height: 1.35;
+    text-align: center;
+}
+
+.preloader__logo span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+    animation: wordReveal 0.65s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation-delay: calc(var(--i) * 0.22s + 0.15s);
+}
+
+@keyframes wordReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .preloader__bar {
