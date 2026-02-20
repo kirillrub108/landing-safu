@@ -102,14 +102,78 @@ export function initTabs() {
   const tabButtons = document.querySelectorAll('.tabs__btn');
   const tabPanels = document.querySelectorAll('.tabs__panel');
   if (tabButtons.length === 0) return;
+
   tabButtons.forEach(button => {
     button.addEventListener('click', () => {
       const targetId = button.dataset.tab;
       tabButtons.forEach(btn => { btn.classList.remove('active'); btn.setAttribute('aria-selected', 'false'); });
       tabPanels.forEach(panel => panel.classList.remove('active'));
-      button.classList.add('active'); button.setAttribute('aria-selected', 'true');
-      const targetPanel = document.getElementById(targetId); if (targetPanel) targetPanel.classList.add('active');
+      button.classList.add('active');
+      button.setAttribute('aria-selected', 'true');
+      const targetPanel = document.getElementById(targetId);
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+        // Инициализируем карусель при первом показе панели
+        const carousel = targetPanel.querySelector('.curr-carousel');
+        if (carousel && !carousel._initialized) _initCurrCarousel(carousel);
+      }
     });
+  });
+
+  // Инициализируем карусель для изначально активной панели
+  const activePanel = document.querySelector('.tabs__panel.active');
+  if (activePanel) {
+    const carousel = activePanel.querySelector('.curr-carousel');
+    if (carousel) _initCurrCarousel(carousel);
+  }
+}
+
+function _initCurrCarousel(carouselEl) {
+  if (carouselEl._initialized) return;
+  carouselEl._initialized = true;
+
+  const viewport = carouselEl.querySelector('.curr-carousel__viewport');
+  const track    = carouselEl.querySelector('.curr-carousel__track');
+  if (!track || !viewport) return;
+
+  const origSlides = Array.from(track.querySelectorAll('.curr-carousel__slide'));
+  const total = origSlides.length;
+  if (total < 2) return;
+
+  // Клонируем все слайды и добавляем в конец — этого достаточно для петли:
+  // анимация translateX(-50%) пройдёт ровно длину оригинала и вернётся к началу
+  origSlides.forEach(s => {
+    const c = s.cloneNode(true);
+    c.setAttribute('aria-hidden', 'true');
+    c.dataset.clone = '';
+    track.append(c);
+  });
+
+  function getVisible() {
+    return window.innerWidth <= 768 ? 1 : 3;
+  }
+
+  function computeDimensions() {
+    if (!viewport.clientWidth) return;
+    const visible  = getVisible();
+    const slideW   = viewport.clientWidth / visible;
+    track.style.width = (total * 2 * slideW) + 'px';
+    Array.from(track.children).forEach(slide => {
+      slide.style.flex = '0 0 ' + slideW + 'px';
+    });
+  }
+
+  // Запускаем анимацию один раз: 3.5 с на каждый слайд = умеренная скорость
+  const duration = total * 3.5;
+  track.style.animation = duration + 's curr-scroll linear infinite';
+
+  computeDimensions();
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    // Только пересчитываем размеры — анимация продолжается без сброса
+    resizeTimer = setTimeout(computeDimensions, 150);
   });
 }
 
