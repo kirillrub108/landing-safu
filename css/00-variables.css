@@ -241,12 +241,9 @@
     background: var(--primary-blue-dark);
 }
 
-/* Учебный план — шире карточки при увеличенном шрифте */
-[data-theme="accessible"] .curriculum__grid {
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-}
-
-[data-theme="accessible"] .curriculum__item h4 {
+/* Учебный план — карточки адаптируются при увеличенном шрифте */
+[data-theme="accessible"] .curr-card__title {
     word-break: break-word;
     overflow-wrap: break-word;
 }
+
