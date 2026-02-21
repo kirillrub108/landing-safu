@@ -871,20 +871,16 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
     gap: 0.45rem;
 }
 
-.program-info__value--check::before {
-    content: '✓';
+.program-info__check {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     flex-shrink: 0;
-    width: 22px;
-    height: 22px;
-    background: var(--accent-teal);
-    border-radius: 50%;
-    color: #fff;
-    font-size: 12px;
-    font-weight: 700;
-    font-family: var(--font-body);
+    filter: drop-shadow(0 0 5px rgba(45, 212, 191, 0.45));
+    transition: filter var(--transition);
+}
+
+.program-info__card:hover .program-info__check {
+    filter: drop-shadow(0 0 9px rgba(45, 212, 191, 0.8));
 }
 
 
