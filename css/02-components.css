@@ -52,7 +52,7 @@
 }
 
 .btn--secondary:hover::before {
-    clip-path: inset(-5% -5% -5% -5% round 50px);
+    clip-path: inset(-5% -5% -5% -5% round 0px);
 }
 
 .btn--secondary:hover {
@@ -637,8 +637,8 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
 }
 
 .hero__buttons .btn--secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: #ffffff;
+    border-color: transparent;
+    color: #1a1a2e;
 }
 
 .hero__scroll {
