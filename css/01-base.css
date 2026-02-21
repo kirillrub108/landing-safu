@@ -206,6 +206,13 @@ address {
     margin: 0 auto 4rem;
 }
 
+.section__header--left {
+    text-align: left;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .section__tag {
     display: inline-block;
     padding: 0.5rem 1.5rem;

@@ -1347,8 +1347,8 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 }
 
 .career__roles {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 }
 
@@ -1426,10 +1426,9 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-xl);
     box-sizing: border-box;
-    align-self: stretch; /* правая панель подстраивается под высоту левой колонки когда возможно */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    margin-bottom: 1.5rem;
 }
 
 .career__companies h3 {
@@ -1442,26 +1441,25 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 
 .career__logos {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 0.75rem;
 }
 
-.career__logos div {
-    padding: 1rem;
+.career__logo-slot {
+    height: 120px;
     background: var(--bg-secondary);
+    border: 1px dashed var(--border-color);
     border-radius: var(--radius-md);
-    text-align: center;
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 0.85rem;
-    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
     transition: background var(--transition), transform var(--transition);
-    white-space: nowrap;
 }
 
-.career__logos div:hover {
+.career__logo-slot:hover {
     background: var(--bg-tertiary);
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 
