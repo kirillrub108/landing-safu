@@ -181,6 +181,7 @@ function _initCurrCarousel(carouselEl) {
 export function initScrollAnimations() {
   const revealElements = document.querySelectorAll('.reveal');
   if (revealElements.length === 0) return;
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -189,10 +190,25 @@ export function initScrollAnimations() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px 300px 0px' });
+
+  const advantagesObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = entry.target.dataset.delay || 0;
+        setTimeout(() => entry.target.classList.add('visible'), delay);
+        advantagesObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px 550px 0px' });
+
   revealElements.forEach((el, index) => {
-    if (el.parentElement?.classList.contains('advantages__grid')) el.dataset.delay = index * 100;
-    observer.observe(el);
+    if (el.parentElement?.classList.contains('advantages__grid')) {
+      el.dataset.delay = index * 50;
+      advantagesObserver.observe(el);
+    } else {
+      observer.observe(el);
+    }
   });
 }
 
