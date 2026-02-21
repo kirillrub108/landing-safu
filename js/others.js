@@ -6,37 +6,38 @@ export function initPreloader() {
     return;
   }
 
-  console.log('[Preloader] Initialized');
   document.body.style.overflow = 'hidden';
 
   let isHidden = false;
-  const hidePreloader = (reason) => {
+  const hidePreloader = () => {
     if (isHidden) return;
     isHidden = true;
-    console.log(`[Preloader] Hiding (reason: ${reason})`);
     preloader.classList.add('hidden');
     document.body.style.overflow = '';
   };
 
-  // Защита от зависания: максимум 10 секунд
-  const maxTimeout = setTimeout(() => hidePreloader('max timeout (10s)'), 10000);
+  // Запускаем анимации когда шрифты готовы, затем прячем прелоадер
+  // ровно после того как последнее слово появилось на экране.
+  // Слово --i:3: задержка 0.81s + длительность 0.65s = 1.46s → +250ms буфер = 1710ms
+  const HIDE_AFTER_MS = 1710;
 
-  // Оптимальный вариант: скрываем когда все ресурсы загружены
-  window.addEventListener('load', () => {
-    clearTimeout(maxTimeout);
-    // Минимальная задержка для визуального эффекта (800ms)
-    setTimeout(() => hidePreloader('window.load'), 800);
-  }, { once: true });
+  let started = false;
+  const startAnimations = () => {
+    if (started) return;
+    started = true;
+    preloader.classList.add('preloader--ready');
+    setTimeout(hidePreloader, HIDE_AFTER_MS);
+  };
 
-  // Резервный вариант: если window.load не сработал за 3 секунды,
-  // скрываем прелоадер принудительно (DOM уже готов, основной контент доступен)
-  const fallbackTimeout = setTimeout(() => {
-    clearTimeout(maxTimeout);
-    hidePreloader('fallback timeout (3s)');
-  }, 3000);
+  // Резервный таймаут 2с если document.fonts.ready не сработает
+  const fontsTimeout = setTimeout(startAnimations, 2000);
+  document.fonts.ready.then(() => {
+    clearTimeout(fontsTimeout);
+    startAnimations();
+  });
 
-  // Очищаем резервный таймаут если window.load сработал
-  window.addEventListener('load', () => clearTimeout(fallbackTimeout), { once: true });
+  // Страховочный таймаут: не более 10 секунд в любом случае
+  setTimeout(hidePreloader, 10000);
 }
 
 export function initHeroVideo() {
