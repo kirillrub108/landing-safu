@@ -220,11 +220,14 @@
 
 /* Иконка тёмной темы должна быть чёрной в режиме для слабовидящих */
 [data-theme="accessible"] .theme-toggle__btn[data-theme="dark"] {
-    color: #000000;
+    background: #1e293b;
+    color: #ffffff;
 }
 
 [data-theme="accessible"] .theme-toggle__btn[data-theme="dark"] .icon {
-    color: #000000 !important;
+    color: #ffffff !important;
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
 }
 
 /* Карьера — равные колонки чтобы компании вмещались при увеличенном шрифте */
