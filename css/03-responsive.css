@@ -22,7 +22,15 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .career__grid {
+    .career__logos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .career__logo-slot {
+        height: 100px;
+    }
+
+    .career__roles {
         grid-template-columns: 1fr;
     }
 
@@ -258,6 +266,10 @@
 
     .career__logos {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .career__logo-slot {
+        height: 80px;
     }
 
     /* Информационные карточки программы - 1 колонка на мобильных */
