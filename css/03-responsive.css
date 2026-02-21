@@ -30,6 +30,11 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* Информационные карточки программы - 2 колонки на планшетах */
+    .program-info__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     /* Трек обучения - вертикальный на планшетах */
     .education-track__timeline {
         flex-direction: column;
@@ -253,6 +258,13 @@
 
     .career__logos {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Информационные карточки программы - 1 колонка на мобильных */
+    .program-info__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+        margin-bottom: 2rem;
     }
 
     /* Трек обучения */
