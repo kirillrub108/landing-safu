@@ -200,7 +200,7 @@ export function initScrollAnimations() {
         advantagesObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px 550px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px 400px 0px' });
 
   revealElements.forEach((el, index) => {
     if (el.parentElement?.classList.contains('advantages__grid')) {
