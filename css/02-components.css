@@ -1220,7 +1220,6 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 
 .curr-card:hover {
     border-color: var(--primary-blue-light);
-    box-shadow: var(--shadow-xl);
 }
 
 .curr-card:hover::before {
@@ -1268,6 +1267,10 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 .curr-card:hover .curr-card__title,
 .curr-card:hover .curr-card__desc {
     color: var(--bg-dark, #1a1a2e);
+}
+
+[data-theme="dark"] .curr-card::before {
+    background: rgba(0, 0, 0, 0.7);
 }
 
 [data-theme="dark"] .curr-card:hover .curr-card__title,
