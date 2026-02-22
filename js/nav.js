@@ -16,6 +16,7 @@ export function initNavigation() {
       const isOpen = mobileMenu.classList.contains('open');
       burger.classList.toggle('active');
       mobileMenu.classList.toggle('open');
+      nav.classList.toggle('menu-open', !isOpen);
       document.body.style.overflow = isOpen ? '' : 'hidden';
       burger.setAttribute('aria-expanded', String(!isOpen));
     });
@@ -24,6 +25,7 @@ export function initNavigation() {
       link.addEventListener('click', () => {
         burger.classList.remove('active');
         mobileMenu.classList.remove('open');
+        nav.classList.remove('menu-open');
         document.body.style.overflow = '';
       });
     });
