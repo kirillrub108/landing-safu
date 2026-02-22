@@ -1391,7 +1391,7 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
 
 .program-info__label {
     font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text-muted);
     letter-spacing: 0.03em;
     text-transform: lowercase;
 }
@@ -1609,7 +1609,7 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
     content: '';
     position: absolute;
     inset: 0;
-    background: #9dc2e6;
+    background: rgba(157, 194, 230, 0.2);
     clip-path: inset(50% 50% 50% 50% round 80px);
     transition: clip-path 0.25s ease;
     z-index: 0;
@@ -1800,7 +1800,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     content: '';
     position: absolute;
     inset: 0;
-    background: #9dc2e6;
+    background: rgba(157, 194, 230, 0.45);
     clip-path: inset(50% 50% 50% 50% round 80px);
     transition: clip-path 0.25s ease;
     z-index: 0;
