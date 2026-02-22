@@ -150,6 +150,15 @@
     border: 1px solid var(--glass-border);
 }
 
+/* Иконка глаза светлая только в светлой теме */
+html:not([data-theme]) .theme-toggle__btn[data-theme="accessible"] .icon {
+    color: #ffffff !important;
+}
+
+html:not([data-theme]) .theme-toggle__btn[data-theme="accessible"]:hover .icon {
+    color: var(--primary-blue) !important;
+}
+
 /* Кнопка темы 'accessible' (глаз) становится светлой когда страница в dark теме */
 [data-theme="dark"] .theme-toggle__btn[data-theme="accessible"] {
     background: #ffffff;
@@ -248,5 +257,29 @@
 [data-theme="accessible"] .curr-card__title {
     word-break: break-word;
     overflow-wrap: break-word;
+}
+
+[data-theme="accessible"] .curr-card__tag {
+    background: #ffffff;
+    border: 1px solid #000000;
+    color: #000000;
+}
+
+/* Метки карточек программы — на белом фоне должны быть тёмными */
+[data-theme="accessible"] .program-info__label {
+    color: #333333;
+}
+
+/* Точки галереи — крупнее и контрастнее */
+[data-theme="accessible"] .gallery__dot {
+    width: 14px;
+    height: 14px;
+    background: #555555;
+    border: 2px solid #000000;
+}
+
+[data-theme="accessible"] .gallery__dot.active {
+    background: #000000;
+    box-shadow: none;
 }
 
