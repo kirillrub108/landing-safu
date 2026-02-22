@@ -1583,6 +1583,10 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
     height: 16px;
 }
 
+.about__feature-touch .icon--mobile {
+    display: none;
+}
+
 .about__feature-touch::after {
     content: 'Наведите для просмотра';
     font-size: 0.9rem;

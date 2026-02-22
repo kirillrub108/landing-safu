@@ -193,7 +193,17 @@
     }
 
     .about__feature-touch {
-        opacity: 0.7;
+        opacity: 0.5;
+    }
+
+    .about__feature-touch .icon--desktop {
+        display: none;
+    }
+
+    .about__feature-touch .icon--mobile {
+        display: inline;
+        width: 24px;
+        height: 24px;
     }
 
     /* ГАЛЕРЕЯ */
