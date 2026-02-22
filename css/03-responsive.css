@@ -89,11 +89,9 @@
         display: flex;
     }
 
-    /* Мобильное меню — начинается под шапкой, не перекрывает переключатель темы */
+    /* Мобильное меню — появляется сверху вниз под шапкой */
     .nav__mobile {
-        top: 4.5rem;
-        height: calc(100vh - 4.5rem);
-        padding-top: 2rem;
+        border-radius: 0 0 1rem 1rem;
     }
 
     /* Hero */

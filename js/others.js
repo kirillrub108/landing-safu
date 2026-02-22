@@ -221,14 +221,17 @@ export function initFeaturePreview() {
 
   function showPreview(index) {
     preview.querySelectorAll('[data-preview]').forEach(el => el.classList.remove('active'));
+    features.forEach(f => f.classList.remove('active'));
     const target = preview.querySelector(`[data-preview="${index}"]`);
     if (target) target.classList.add('active');
     preview.classList.add('active');
+    features[index].classList.add('active');
     activeFeature = index;
   }
 
   function hidePreview() {
     preview.classList.remove('active');
+    features.forEach(f => f.classList.remove('active'));
     activeFeature = null;
   }
 

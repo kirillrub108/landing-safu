@@ -340,12 +340,12 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
 
 @keyframes preloaderFadeIn {
     from { opacity: 0; }
-    to   { opacity: 1; }
+    to   { opacity: 0.45; }
 }
 
 @keyframes preloaderCornerPulse {
     0%, 100% { opacity: 0.45; }
-    50%       { opacity: 1; }
+    50%       { opacity: 0.7; }
 }
 
 /* ── Световые орбы ── */
@@ -782,6 +782,10 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
     box-shadow: var(--shadow-md);
 }
 
+.nav.menu-open {
+    background: var(--bg-primary);
+}
+
 .nav__container {
     max-width: var(--container);
     margin: 0 auto;
@@ -895,27 +899,41 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
 }
 
 .nav__mobile {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 80%;
-    max-width: 400px;
-    height: 100vh;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    max-height: 0;
     background: var(--bg-primary);
     z-index: var(--z-mobile-menu);
-    padding: 6rem 2rem 2rem;
-    transition: right var(--transition);
-    overflow-y: auto;
-    box-shadow: var(--shadow-xl);
+    padding: 0 2rem;
+    margin-top: -1px;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    overflow: hidden;
+    box-shadow: none;
+}
+
+.nav.scrolled .nav__mobile {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 .nav__mobile.open {
-    right: 0;
+    max-height: 80vh;
+    padding: 1.5rem 2rem 2rem;
+    box-shadow: var(--shadow-xl);
+    overflow-y: auto;
 }
 
 .nav__mobile ul {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 1.5rem;
 }
 
@@ -1593,7 +1611,8 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
     white-space: nowrap;
 }
 
-.about__feature--with-image:hover .about__feature-touch {
+.about__feature--with-image:hover .about__feature-touch,
+.about__feature--with-image.active .about__feature-touch {
     opacity: 0;
 }
 
