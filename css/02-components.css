@@ -788,7 +788,7 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
     padding: 0 2rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    position: relative;
 }
 
 .nav__logo {
@@ -828,6 +828,10 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
 .nav__links {
     display: flex;
     gap: 2.5rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
 }
 
 .nav__links a {
@@ -851,6 +855,12 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
 
 .nav__links a:hover::after {
     width: 100%;
+}
+
+/* Переключатель темы в навбаре прижат вправо (десктоп) */
+.nav__container .theme-toggle {
+    margin-left: auto;
+    margin-right: 3rem;
 }
 
 .nav__burger {
