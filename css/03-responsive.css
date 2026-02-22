@@ -79,6 +79,12 @@
         display: none;
     }
 
+    /* На мобильных переключатель темы центрируется между логотипом и бургером */
+    .nav__container .theme-toggle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .nav__burger {
         display: flex;
     }
