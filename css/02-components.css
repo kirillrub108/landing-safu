@@ -83,31 +83,28 @@
    6. ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ
 ================================================================ */
 .theme-toggle {
-    position: fixed;
-    top: 50%;
-    right: 1rem;
-    transform: translateY(-50%);
-    z-index: var(--z-theme-toggle);
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.75rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.3rem;
     background: var(--glass);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
 }
 
 .theme-toggle__btn {
-    width: 44px;
-    height: 44px;
+    position: relative;
+    width: 36px;
+    height: 36px;
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
     background: transparent;
     border: 2px solid transparent;
@@ -132,8 +129,10 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
 .theme-toggle__btn[title]::after {
     content: attr(title);
     position: absolute;
-    right: 100%;
-    margin-right: 0.5rem;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0.5rem;
     padding: 0.5rem 0.75rem;
     background: #1e293b;
     color: #ffffff;
@@ -144,6 +143,7 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
     opacity: 0;
     visibility: hidden;
     transition: opacity var(--transition), visibility var(--transition);
+    z-index: 10;
 }
 
 .theme-toggle__btn:hover::after {
@@ -1609,7 +1609,7 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(157, 194, 230, 0.2);
+    background: #9dc2e6;
     clip-path: inset(50% 50% 50% 50% round 80px);
     transition: clip-path 0.25s ease;
     z-index: 0;
@@ -1800,7 +1800,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(157, 194, 230, 0.45);
+    background: #9dc2e6;
     clip-path: inset(50% 50% 50% 50% round 80px);
     transition: clip-path 0.25s ease;
     z-index: 0;
