@@ -259,6 +259,10 @@ html:not([data-theme]) .theme-toggle__btn[data-theme="accessible"]:hover .icon {
     overflow-wrap: break-word;
 }
 
+[data-theme="accessible"] .card::before {
+    background: rgba(157, 194, 230, 0.2);
+}
+
 [data-theme="accessible"] .curr-card__tag {
     background: #ffffff;
     border: 1px solid #000000;
