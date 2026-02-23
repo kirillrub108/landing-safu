@@ -45,7 +45,8 @@ body::before {
 }
 
 [data-theme="dark"] body::before {
-    opacity: 0.10;
+    opacity: 0.25;
+    mix-blend-mode: screen;
 }
 
 [data-theme="accessible"] body::before {
