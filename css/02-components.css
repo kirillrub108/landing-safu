@@ -1430,7 +1430,7 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
 
 .program-info__value {
     font-family: var(--font-display);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--text-primary);
     display: flex;
@@ -2043,14 +2043,18 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     display: flex;
     flex-direction: column;
     margin-bottom: 1.5rem;
+    overflow: hidden;
 }
 
 .career__companies h3 {
     font-family: var(--font-display);
     font-size: 1.2rem;
     text-align: center;
-    margin-bottom: 1.5rem;
     color: var(--text-primary);
+    background: var(--bg-tertiary);
+    margin: -2rem -2rem 1.5rem;
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .career__logos {
@@ -2068,7 +2072,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: 0.75rem;
+    padding: 1.25rem;
     transition: transform var(--transition), box-shadow var(--transition);
 }
 
