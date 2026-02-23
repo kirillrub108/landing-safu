@@ -2036,7 +2036,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 
 .career__companies {
     padding: 2rem;
-    background: var(--bg-primary);
+    background: var(--bg-tertiary);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-xl);
     box-sizing: border-box;
@@ -2051,7 +2051,7 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     font-size: 1.2rem;
     text-align: center;
     color: var(--text-primary);
-    background: var(--bg-tertiary);
+    background: var(--bg-primary);
     margin: -2rem -2rem 1.5rem;
     padding: 1.25rem 2rem;
     border-bottom: 1px solid var(--border-color);
