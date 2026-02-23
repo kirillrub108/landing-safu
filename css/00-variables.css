@@ -269,6 +269,16 @@ html:not([data-theme]) .theme-toggle__btn[data-theme="accessible"]:hover .icon {
     color: #000000;
 }
 
+/* Навигация — уменьшаем gap чтобы ссылки не перекрывали переключатель темы */
+[data-theme="accessible"] .nav__links {
+    gap: 1.25rem;
+}
+
+/* Выравниваем переключатель симметрично между «Карьера» и «Подать заявку» */
+[data-theme="accessible"] .nav__container .theme-toggle {
+    margin-right: 1.5rem;
+}
+
 /* Метки карточек программы — на белом фоне должны быть тёмными */
 [data-theme="accessible"] .program-info__label {
     color: #333333;
