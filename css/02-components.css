@@ -2048,8 +2048,6 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
 }
 
 .career__companies {
-    position: relative;
-    z-index: 10;
     padding: 2rem;
     background: var(--bg-tertiary);
     border: 1px solid var(--border-color);
