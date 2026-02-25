@@ -837,8 +837,9 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
 }
 
 .nav__logo-img {
-    height: 40px;
+    height: 55px;
     width: auto;
+    mix-blend-mode: lighten;
 }
 
 .nav__logo-text {
@@ -2013,8 +2014,9 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     transition: background var(--transition), border-color var(--transition), transform var(--transition);
     box-sizing: border-box;
     width: 100%;
-    min-height: 72px; /* сохраняем консистентный визуальный ритм */
-    overflow: hidden;
+    min-height: 72px;
+    transform: scale(1);
+    will-change: transform;
 }
 
 .career__role:hover {
@@ -2383,6 +2385,13 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
     gap: 3rem;
     margin-bottom: 3rem;
+}
+
+.footer__brand .nav__logo-img {
+    height: 80px;
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 0.5rem;
 }
 
 .footer__brand p {
