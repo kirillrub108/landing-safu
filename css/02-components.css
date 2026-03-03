@@ -1011,6 +1011,7 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
     display: flex;
     align-items: center;
     position: relative;
+    z-index: 6;
     overflow: hidden;
     background: var(--gradient-hero);
 }
@@ -1522,6 +1523,10 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
     right: -20px;
     z-index: var(--z-bg);
     opacity: 0.4;
+}
+
+.about__content {
+    z-index: 6;
 }
 
 .about__content h3 {
