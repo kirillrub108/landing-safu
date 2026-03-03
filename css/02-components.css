@@ -2392,6 +2392,13 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     margin-bottom: 3rem;
 }
 
+.footer__brand .logos {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
 .footer__brand .nav__logo-img {
     height: 80px;
     background: #ffffff;
