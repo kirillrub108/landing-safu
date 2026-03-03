@@ -279,6 +279,19 @@ html:not([data-theme]) .theme-toggle__btn[data-theme="accessible"]:hover .icon {
     margin-right: 1.5rem;
 }
 
+/* Логотип — тёмная подложка чтобы логотип был виден на белом фоне */
+[data-theme="accessible"] .nav__logo-img {
+    mix-blend-mode: normal;
+    background: #000080;
+    border-radius: 6px;
+    padding: 3px 5px;
+}
+
+/* Граница снизу при скролле — чтобы белый nav отделялся от белой страницы */
+[data-theme="accessible"] .nav.scrolled {
+    border-bottom: 2px solid #000000;
+}
+
 /* Метки карточек программы — на белом фоне должны быть тёмными */
 [data-theme="accessible"] .program-info__label {
     color: #333333;
