@@ -74,7 +74,7 @@
 .footer__socials a {
     width: 40px;
     height: 40px;
-    background: var(--bg-tertiary);
+    background: rgba(0, 0, 0, 0.15);
     border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
@@ -85,7 +85,7 @@
     color: var(--text-secondary);
     position: relative;
     overflow: hidden;
-    z-index: 0;
+    z-index: 6;
     transition: color 0.25s ease;
 }
 
