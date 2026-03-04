@@ -50,11 +50,24 @@
     justify-content: center;
     font-size: 1.5rem;
     flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .career__role-icon .icon {
     width: 32px;
     height: 32px;
+}
+
+.career__role-icon img {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 32px !important;
+    height: 32px !important;
+    object-fit: contain;
+    max-width: none !important;
 }
 
 .career__role-info {

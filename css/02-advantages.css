@@ -51,6 +51,7 @@
     margin-bottom: 1.5rem;
     position: relative;
     z-index: 1;
+    overflow: hidden;
     transition: background 0.4s ease;
 }
 
@@ -63,6 +64,17 @@
     height: 1.4em;
     fill: #ffffff;
     color: #ffffff;
+}
+
+.card__icon img {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 45px !important;
+    height: 45px !important;
+    object-fit: contain;
+    max-width: none !important;
 }
 
 /* Иконки на gradient/цветных badge должны быть белыми для контраста.
