@@ -1,0 +1,111 @@
+/* ======== ПРЕИМУЩЕСТВА ======== */
+.advantages {
+    background: var(--bg-secondary);
+}
+
+.advantages__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.card {
+    padding: 2rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #9dc2e6;
+    clip-path: inset(50% 50% 50% 50% round 80px);
+    transition: clip-path 0.25s ease;
+    z-index: 0;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-blue-light);
+    box-shadow: var(--shadow-xl);
+}
+
+.card:hover::before {
+    clip-path: inset(-5% -5% -5% -5% round 0px);
+}
+
+.card__icon {
+    width: 70px;
+    height: 70px;
+    background: var(--primary-blue);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+    transition: background 0.4s ease;
+}
+
+.card:hover .card__icon {
+    background: var(--primary-blue);
+}
+
+.card__icon .icon {
+    width: 1.4em;
+    height: 1.4em;
+    fill: #ffffff;
+    color: #ffffff;
+}
+
+/* Иконки на gradient/цветных badge должны быть белыми для контраста.
+   Должны перебить базовое правило body:not([data-theme="dark"]) .icon (специфичность 0,2,1). */
+.card__icon,
+.career__role-icon {
+    color: #ffffff;
+}
+
+body:not([data-theme="dark"]) .card__icon .icon,
+body:not([data-theme="dark"]) .career__role-icon .icon {
+    color: #ffffff;
+    fill: currentColor !important;
+    stroke: currentColor !important;
+}
+
+.card h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    position: relative;
+    z-index: 1;
+    transition: color 0.4s ease;
+}
+
+.card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    position: relative;
+    z-index: 1;
+    transition: color 0.4s ease;
+}
+
+.card:hover h3,
+.card:hover p {
+    color: var(--bg-dark, #1a1a2e);
+}
+
+[data-theme="dark"] .card:hover h3,
+[data-theme="dark"] .card:hover p {
+    color: #ffffff;
+}
+
+

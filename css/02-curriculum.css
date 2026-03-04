@@ -1,0 +1,214 @@
+/* ======== УЧЕБНЫЙ ПЛАН ======== */
+.tabs__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.tabs__btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.25s ease, border-color 0.25s ease;
+    z-index: 0;
+}
+
+.tabs__btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    clip-path: inset(50% 50% 50% 50% round 80px);
+    transition: clip-path 0.25s ease;
+    z-index: -1;
+}
+
+.tabs__btn:hover::before,
+.tabs__btn.active::before {
+    clip-path: inset(-5% -5% -5% -5% round 0px);
+}
+
+.tabs__btn:hover,
+.tabs__btn.active {
+    color: var(--bg-dark, #1a1a2e);
+    border-color: var(--primary-blue);
+}
+
+.tabs__panel {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.tabs__panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Карусель дисциплин ---- */
+.curr-carousel {
+    position: relative;
+    user-select: none;
+}
+
+.curr-carousel__viewport {
+    overflow: hidden;
+}
+
+@keyframes curr-scroll {
+    to { transform: translateX(-50%); }
+}
+
+.curr-carousel__track {
+    display: flex;
+    /* ширина и flex-basis слайдов задаются через JS */
+}
+
+.curr-carousel__slide {
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+/* Карточка дисциплины */
+.curr-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 2.25rem 1.75rem 2rem;
+    min-height: 290px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    cursor: default;
+}
+
+/* Заливка — как у карточек преимуществ */
+.curr-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #9dc2e6;
+    clip-path: inset(50% 50% 50% 50% round 80px);
+    transition: clip-path 0.25s ease;
+    z-index: 0;
+}
+
+.curr-card:hover {
+    border-color: var(--primary-blue-light);
+}
+
+.curr-card:hover::before {
+    clip-path: inset(-5% -5% -5% -5% round 0px);
+}
+
+.curr-card__num {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: var(--primary-blue);
+    opacity: 0.12;
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.curr-card__title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.35;
+    margin: 0 0 1rem;
+    padding-right: 2.5rem;
+    position: relative;
+    z-index: 1;
+    transition: color 0.25s ease;
+}
+
+.curr-card__desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    transition: color 0.25s ease;
+}
+
+.curr-card:hover .curr-card__title,
+.curr-card:hover .curr-card__desc {
+    color: var(--bg-dark, #1a1a2e);
+}
+
+.curr-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: auto;
+    padding-top: 1.25rem;
+    position: relative;
+    z-index: 1;
+}
+
+.curr-card__tag {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.38rem 0.8rem;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--text-secondary);
+    letter-spacing: 0.03em;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.curr-card:hover .curr-card__tag {
+    background: rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.15);
+    color: var(--bg-dark, #1a1a2e);
+}
+
+[data-theme="dark"] .curr-card::before {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .curr-card__tag {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="dark"] .curr-card:hover .curr-card__title,
+[data-theme="dark"] .curr-card:hover .curr-card__desc {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .curr-card:hover .curr-card__tag {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+}
+
+

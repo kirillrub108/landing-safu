@@ -1,0 +1,181 @@
+/* ================================================================
+   10. ТРЕК ОБУЧЕНИЯ (4 ГОДА)
+================================================================ */
+.education-track {
+    background: var(--bg-secondary);
+    overflow: hidden;
+}
+
+.education-track__timeline {
+    display: flex;
+    position: relative;
+    padding: 2rem 0;
+}
+
+.education-track__timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--border-color);
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+.education-track__timeline::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    background: var(--primary-blue);
+    transform: translateY(-50%);
+    z-index: 1;
+    animation: trackProgress 2s ease forwards;
+    animation-play-state: paused;
+}
+
+.education-track__timeline.animated::after {
+    animation-play-state: running;
+}
+
+@keyframes trackProgress {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.education-track__year {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+    padding: 0 1rem;
+}
+
+.education-track__marker {
+    width: 60px;
+    height: 60px;
+    background: var(--bg-primary);
+    border: 4px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    transition: border-color var(--transition), color var(--transition), transform var(--transition);
+}
+
+.education-track__year.active .education-track__marker {
+    border-color: var(--primary-blue);
+    color: var(--text-primary);
+    transform: scale(1.1);
+}
+
+.education-track__card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.education-track__year:hover .education-track__card {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-blue-light);
+}
+
+.education-track__title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.education-track__subtitle {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.education-track__skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.education-track__skill {
+    padding: 0.25rem 0.75rem;
+    background: var(--bg-tertiary);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* ── Информационные карточки программы ── */
+.program-info__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.program-info__card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.program-info__card:hover {
+    border-color: var(--primary-blue-light);
+    box-shadow: var(--shadow-md);
+}
+
+.program-info__label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.03em;
+    text-transform: lowercase;
+}
+
+[data-theme="dark"] .program-info__label {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.program-info__value {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.program-info__check {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 5px rgba(45, 212, 191, 0.45));
+    transition: filter var(--transition);
+}
+
+.program-info__card:hover .program-info__check {
+    filter: drop-shadow(0 0 9px rgba(45, 212, 191, 0.8));
+}
+
+

@@ -1,0 +1,39 @@
+/* ================================================================
+   13. АНИМАЦИИ ПОЯВЛЕНИЯ
+================================================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal--left {
+    transform: translateX(-40px);
+}
+
+.reveal--left.visible {
+    transform: translateX(0);
+}
+
+.reveal--right {
+    transform: translateX(40px);
+}
+
+.reveal--right.visible {
+    transform: translateX(0);
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}

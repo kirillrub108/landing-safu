@@ -1,0 +1,93 @@
+/* ======== ПРИЗЫВ К ДЕЙСТВИЮ ======== */
+.cta {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-primary);
+    color: #ffffff;
+}
+
+.cta__content {
+    position: relative;
+    z-index: var(--z-default);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta__content h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.cta__highlight {
+    background: linear-gradient(135deg, #ffffff, #e0f2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.cta__content > p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 2.5rem;
+}
+
+.cta__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cta__buttons .btn--primary {
+    background: var(--primary-blue);
+    color: #ffffff;
+}
+
+.cta__buttons .btn--primary:hover {
+    box-shadow: 0 10px 30px rgba(91, 155, 245, 0.4);
+}
+
+.cta__buttons .btn--secondary {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+}
+
+.cta__buttons .btn--secondary:hover {
+    background: transparent;
+    border-color: transparent;
+    color: var(--bg-dark, #1a1a2e);
+}
+
+.cta__info {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta__info > div {
+    text-align: center;
+}
+
+.cta__info span {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+}
+
+.cta__info p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+

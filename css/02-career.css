@@ -1,0 +1,165 @@
+/* ======== КАРЬЕРА ======== */
+.career {
+    background: var(--bg-secondary);
+}
+
+.career__grid {
+    display: grid;
+    /* Левая колонка (вакансии) занимает больше половины, правая (компании) уже */
+    grid-template-columns: minmax(420px, 1.3fr) minmax(320px, 0.7fr);
+    gap: 3rem;
+    align-items: start;
+    grid-auto-rows: auto;
+}
+
+.career__roles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.career__role {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    transition: background var(--transition), border-color var(--transition), transform var(--transition);
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 72px;
+    transform: scale(1);
+    will-change: transform;
+}
+
+.career__role:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--primary-blue-light);
+    transform: scale(1.02);
+}
+
+.career__role-icon {
+    width: 55px;
+    height: 55px;
+    background: var(--primary-blue);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.career__role-icon .icon {
+    width: 32px;
+    height: 32px;
+}
+
+.career__role-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.career__role-info h4 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    color: var(--text-primary);
+}
+
+.career__role-info p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.career__role-salary {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.career__role-salary span {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #10b981;
+}
+
+.career__role-salary small {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.career__companies {
+    position: relative;
+    z-index: 6;
+    padding: 2rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+/* Локальное зерно поверх синего фона, но под карточками */
+.career__companies::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px 200px;
+}
+
+.career__companies h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    margin: -2rem -2rem 1.5rem;
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.career__logos {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.75rem;
+}
+
+.career__logo-slot {
+    position: relative;
+    z-index: 3;
+    height: 120px;
+    background: #ffffff;
+    border: none;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 1.25rem;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.career__logo-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.career__logo-slot:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+

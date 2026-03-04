@@ -1,0 +1,75 @@
+/* ================================================================
+   5. КНОПКИ
+================================================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+    white-space: nowrap;
+}
+
+.btn--primary {
+    background: var(--primary-blue);
+    color: #ffffff;
+}
+
+.btn--primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(91, 155, 245, 0.4);
+}
+
+.btn--secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.btn--secondary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    clip-path: circle(0% at 50% 50%);
+    transition: clip-path 0.25s ease;
+    z-index: -1;
+}
+
+.btn--secondary:hover::before {
+    clip-path: circle(100% at 50% 50%);
+}
+
+.btn--secondary:hover {
+    border-color: transparent;
+    color: #1a1a2e !important;
+}
+
+.btn--small {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+}
+
+.btn--large {
+    padding: 1.2rem 2.5rem;
+    font-size: 1rem;
+}
+
+.btn__arrow {
+    transition: transform var(--transition);
+}
+
+.btn:hover .btn__arrow {
+    transform: translateX(5px);
+}
+
+
