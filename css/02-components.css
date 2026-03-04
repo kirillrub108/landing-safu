@@ -2042,6 +2042,11 @@ body:not([data-theme="dark"]) .career__role-icon .icon {
     flex-shrink: 0;
 }
 
+.career__role-icon .icon {
+    width: 32px;
+    height: 32px;
+}
+
 .career__role-info {
     flex: 1;
     min-width: 0;
