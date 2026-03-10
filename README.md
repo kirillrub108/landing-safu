@@ -108,8 +108,8 @@ landing safu 1/
     │   ├── logos/              # Логотипы САФУ, партнёров, работодателей, соцсетей
     │   ├── gallery/            # Фотографии для слайдера
     │   ├── features/           # Фото для блока «О направлении»
-    │   ├── about-lab.jpg       # Фото лаборатории
-    │   └── hero-poster.jpg     # Постер для hero-видео (fallback)
+    │   ├── about-lab.webp       # Фото лаборатории
+    │   └── hero-poster.webp     # Постер для hero-видео (fallback)
     │
     └── video/
         └── hero-background.mp4 # Фоновое видео (без звука, зациклено)

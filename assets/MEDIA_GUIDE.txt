@@ -54,19 +54,19 @@ assets/
 │   │   └── max.png             MAX (мессенджер)
 │   │
 │   ├── gallery/                Фотографии для слайдера (секция «Галерея»).
-│   │   ├── conference.jpg      Конференция / мероприятие
-│   │   ├── defense.jpg         Защита дипломного проекта
-│   │   ├── lab.jpg             Компьютерная лаборатория
-│   │   ├── photo-zone.jpg      Студенты / фотозона
-│   │   ├── projects.jpg        Работа над проектами
-│   │   └── students.jpg        Студенческая жизнь
+│   │   ├── conference.webp      Конференция / мероприятие
+│   │   ├── defense.webp         Защита дипломного проекта
+│   │   ├── lab.webp             Компьютерная лаборатория
+│   │   ├── photo-zone.webp      Студенты / фотозона
+│   │   ├── projects.webp        Работа над проектами
+│   │   └── students.webp        Студенческая жизнь
 │   │
 │   ├── features/               Фото для блока «О направлении».
-│   │   ├── laboratory.jpg      Современная лаборатория
-│   │   └── vr.jpg              VR/AR технологии
+│   │   ├── laboratory.webp      Современная лаборатория
+│   │   └── vr.webp              VR/AR технологии
 │   │
-│   ├── about-lab.jpg           Фото лаборатории — используется в секции «О направлении»
-│   └── hero-poster.jpg         Постер для hero-видео. Показывается пока видео
+│   ├── about-lab.webp           Фото лаборатории — используется в секции «О направлении»
+│   └── hero-poster.webp         Постер для hero-видео. Показывается пока видео
 │                               грузится или если оно недоступно. 1920×1080px.
 │
 └── video/
@@ -86,7 +86,7 @@ hero-background.mp4:
   - Содержание:   студенты за компьютерами, кампус, лаборатории
 
 Если файл отсутствует — hero-секция показывает статичный постер
-(assets/images/hero-poster.jpg) на тёмно-синем градиентном фоне.
+(assets/images/hero-poster.webp) на тёмно-синем градиентном фоне.
 
 
 ================================================================================
@@ -101,10 +101,10 @@ hero-background.mp4:
 
   Файл                      Рекомендуемый размер
   ─────────────────────────────────────────────
-  hero-poster.jpg           1920×1080px
-  about-lab.jpg             800×600px
-  gallery/*.jpg             1200×800px (ширина важнее высоты)
-  features/*.jpg            800×450px
+  hero-poster.webp           1920×1080px
+  about-lab.webp             800×600px
+  gallery/*.webp             1200×800px (ширина важнее высоты)
+  features/*.webp            800×450px
   logos/*.png               до 400×200px (сохранять прозрачность)
   icons/*.png               512×512px, белая иконка на прозрачном фоне
 
@@ -120,7 +120,7 @@ hero-background.mp4:
 ================================================================================
 
 1. Добавьте файл логотипа в:
-   assets/images/logos/название.png (или .jpg)
+   assets/images/logos/название.png (или .webp)
 
 2. Откройте sections/career.html
 
@@ -135,13 +135,13 @@ hero-background.mp4:
 ================================================================================
 
 1. Добавьте файл в:
-   assets/images/gallery/название.jpg
+   assets/images/gallery/название.webp
 
 2. Откройте sections/gallery.html
 
 3. Добавьте слайд в <div class="gallery__track">:
    <div class="gallery__slide">
-       <img src="assets/images/gallery/название.jpg"
+       <img src="assets/images/gallery/название.webp"
             alt="Описание фото"
             loading="lazy">
    </div>
