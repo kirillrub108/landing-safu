@@ -300,4 +300,7 @@
     display: none;
 }
 
+[data-theme="accessible"] .hero__video-overlay {
+    background: linear-gradient(135deg, rgba(15, 45, 92, 0.85) 0%, rgba(26, 75, 140, 0.75) 50%, rgba(37, 99, 235, 0.7) 100%);
+}
 
