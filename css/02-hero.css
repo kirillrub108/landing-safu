@@ -26,6 +26,7 @@
 .hero__video-overlay {
     position: absolute;
     inset: 0;
+    background: linear-gradient(135deg, rgba(15, 45, 92, 0.35) 0%, rgba(26, 75, 140, 0.25) 50%, rgba(37, 99, 235, 0.2) 100%);
 }
 
 .hero__video-placeholder {
