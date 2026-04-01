@@ -51,6 +51,9 @@
     position: relative;
     z-index: 2;
     padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .education-track__marker {
@@ -83,6 +86,10 @@
     padding: 1.5rem;
     text-align: center;
     transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .education-track__year:hover .education-track__card {
@@ -111,6 +118,7 @@
     flex-wrap: wrap;
     gap: 0.5rem;
     justify-content: center;
+    margin-top: auto;
 }
 
 .education-track__skill {
