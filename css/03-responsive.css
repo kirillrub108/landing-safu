@@ -2,6 +2,32 @@
    03 - Responsive rules and media queries
 ================================================================ */
 
+/* Планшеты широкие (769px – 1100px): десктопная раскладка нав в уменьшенном виде */
+@media (max-width: 1100px) and (min-width: 769px) {
+    /* Снимаем абсолютное позиционирование и переходим на flex */
+    .nav__links {
+        position: static;
+        transform: none;
+        flex: 1;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .nav__links a {
+        font-size: 0.8rem;
+    }
+
+    .nav__logo-img {
+        height: 44px;
+    }
+
+    .nav__cta {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.9rem;
+        white-space: nowrap;
+    }
+}
+
 /* Планшеты (до 1200px) */
 @media (max-width: 1200px) {
     .hero__container {
@@ -79,14 +105,9 @@
         display: none;
     }
 
-    /* На мобильных переключатель темы центрируется между логотипом и бургером */
-    .nav__container .theme-toggle {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
     .nav__burger {
         display: flex;
+        margin-left: auto;
     }
 
     /* Мобильное меню — появляется сверху вниз под шапкой */

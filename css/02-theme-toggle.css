@@ -2,6 +2,10 @@
    6. ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ
 ================================================================ */
 .theme-toggle {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: var(--z-nav);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -13,6 +17,13 @@
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 768px) {
+    .theme-toggle {
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
 }
 
 .theme-toggle__btn {
@@ -55,7 +66,7 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
     padding: 0.5rem 0.75rem;
     background: #1e293b;
     color: #ffffff;
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: var(--radius-sm);
     font-size: 0.75rem;
     white-space: nowrap;
@@ -69,5 +80,3 @@ body:not([data-theme="dark"]) .theme-toggle__btn.active .icon {
     opacity: 1;
     visibility: visible;
 }
-
-

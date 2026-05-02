@@ -269,14 +269,19 @@ html:not([data-theme]) .theme-toggle__btn[data-theme="accessible"]:hover .icon {
     color: #000000;
 }
 
-/* Навигация — уменьшаем gap чтобы ссылки не перекрывали переключатель темы */
+/* Навигация — нейтрализуем увеличенный rem (18px) чтобы всё помещалось */
 [data-theme="accessible"] .nav__links {
-    gap: 1.25rem;
+    gap: 0.9rem;
 }
 
-/* Выравниваем переключатель симметрично между «Карьера» и «Подать заявку» */
-[data-theme="accessible"] .nav__container .theme-toggle {
-    margin-right: 1.5rem;
+[data-theme="accessible"] .nav__links a {
+    font-size: 13px;
+    letter-spacing: 0;
+}
+
+[data-theme="accessible"] .nav__cta {
+    font-size: 13px;
+    padding: 0.45rem 0.85rem;
 }
 
 /* Логотип — тёмная подложка чтобы логотип был виден на белом фоне */
